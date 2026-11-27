@@ -126,7 +126,7 @@
       type="text"
       class="search-box full"
       id="searchInput"
-      placeholder="搜尋品牌或關鍵字（如 VERSACE, LOUIS VUITTON, 手提包...）"
+      placeholder="搜尋品牌或關鍵字（如 LOUIS VUITTON, CHANEL, 手提包...）"
     />
 
     <div class="controls-row">
@@ -243,7 +243,6 @@
       });
       const total = Object.values(counts).reduce((a, b) => a + b, 0);
 
-      // 依照英文字母 A -> Z 排序
       const brands = Object.keys(counts).sort((a, b) => a.localeCompare(b, "en", { sensitivity: "base" }));
 
       if (currentBrand && !counts[currentBrand]) currentBrand = "";
@@ -323,10 +322,12 @@
     async function loadData() {
       try {
         if (location.protocol === "file:") {
-          throw new Error("不能直接雙擊開啟，請部署到 GitHub Pages，或在資料夾執行 python -m http.server 後開 http://localhost:8000");
+          throw new Error("不能直接雙擊開啟，請透過 GitHub Pages 或本機伺服器開啟");
         }
-        const res = await fetch(`./results.json?t=${Date.now()}`);
-        if (!res.ok) throw new Error(`results.json 讀取失敗（HTTP ${res.status}），請確認檔案已 commit 到 repo 根目錄`);
+        const res = await fetch(`./results.json?t=${Date.now()}`, { cache: "no-store" });
+        if (!res.ok) {
+          throw new Error(`results.json 讀取失敗（HTTP ${res.status}）`);
+        }
         const data = await res.json();
         const rawList = Array.isArray(data) ? data : (data.items || []);
         updatedAt = Array.isArray(data) ? "" : (data.updated || "");
@@ -335,9 +336,11 @@
         render();
       } catch (err) {
         document.getElementById("metaText").textContent = "資料載入失敗：" + err.message;
-        document.getElementById("grid").innerHTML = `<div class="empty">無法讀取 results.json</div>`;
+        document.getElementById("grid").innerHTML = `<div class="empty">${esc(err.message)}</div>`;
       }
     }
 
     loadData();
-  </script
+  </script>
+</body>
+</html>
