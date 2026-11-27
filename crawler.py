@@ -16,24 +16,21 @@ from urllib.parse import urljoin
 from playwright.sync_api import sync_playwright
 
 # ==================== 1. 設定區（只需要改這裡）====================
-BASE = "https://2ndstreet.com.tw"
+BASE = "https://store.2ndstreet.com.tw"
 
-# 到網站上手動點進各分類頁，把網址整段貼進來
+# 分類頁網址（整段貼上即可；如果誤貼成兩段網址黏在一起，程式會自動修正）
 CATEGORY_URLS = {
-    "all":  "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/427321",
     "new":  "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/442464",
     "sale": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/442514",
+    # 若有「全部包包」分類頁，把下一行的 # 拿掉並換成網址：
+    # "all": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/這裡換成分類編號",
 }
-PAGE_PARAM = "page"      # 翻頁參數；若網站是 ?p=2 就改成 "p"
+PAGE_PARAM = "page"      # 翻頁參數；若網站不支援翻頁，程式會偵測到重複頁自動停止
 MAX_PAGES = 30
 
-# 用瀏覽器 F12 檢查一張商品卡片後填入（以下是常見寫法，請對照實際 DOM 修改）
-SEL_ITEM = "a[href*='/goods/'], a[href*='/product']"   # 商品卡片（必須是含連結的元素）
-SEL_NAME = ".name, .title, h3, h4"
-SEL_PRICE = ".price, .now, [class*='price']"
-SEL_ORIG = "del, s, .origin, [class*='original']"      # 原價（有降價才會出現）
-SEL_IMG = "img"
-ID_REGEX = r"/(?:goods|product)s?/([\w-]+)"            # 從連結抓商品 ID
+# 商品連結：91APP 商品頁格式為 /SalePage/Index/商品編號（也相容 /SalePage/商品編號）
+SEL_ITEM = "a[href*='/SalePage/']"
+ID_REGEX = r"/SalePage/(?:Index/)?(\d+)"
 
 DATA_FILE = Path("results.json")  # 前端 fetch("./results.json") 讀的就是這個檔
 NEW_DAYS = 3                      # 首次出現後幾天內算「新上架」
@@ -59,36 +56,80 @@ def scroll_to_bottom(page):
         last = n
 
 
+JS_CARDS = r"""
+(sel) => {
+  const out = [];
+  document.querySelectorAll(sel).forEach((a) => {
+    let card = a;
+    for (let i = 0; i < 5 && card && !/\$|NT/.test(card.innerText || ""); i++) {
+      card = card.parentElement;
+    }
+    if (!card) return;
+    const imgs = Array.from(card.querySelectorAll("img")).filter(
+      (i) => !/ProductBadge|badge/i.test((i.src || "") + (i.alt || "") + (i.getAttribute("data-qe-id") || ""))
+    );
+    const img = imgs[0] || null;
+    out.push({
+      href: a.getAttribute("href") || "",
+      text: card.innerText || "",
+      img: img ? (img.currentSrc || img.src || img.getAttribute("data-src") || "") : "",
+      alt: img ? (img.alt || "") : "",
+    });
+  });
+  return out;
+}
+"""
+
+
+def parse_card(raw):
+    """從卡片文字抓出名稱與價格：最低價 = 現價，最高價 = 原價"""
+    text = raw["text"]
+    if len(text) > 400:      # 抓到整個列表容器，不是單一商品
+        return None
+    amounts = [int(x.replace(",", ""))
+               for x in re.findall(r"(?:NT\$|\$)\s*([\d,]+)", text)]
+    amounts = [a for a in amounts if a > 0]
+    if not amounts:   # 沒有 $ 符號時，改抓「整行只有數字」的價格行
+        for l in text.splitlines():
+            l = l.strip()
+            if re.fullmatch(r"[\d,]{3,}", l):
+                amounts.append(int(l.replace(",", "")))
+    if not amounts:
+        return None
+    price = min(amounts)
+    orig = max(amounts) if max(amounts) > price else None
+    lines = [l.strip() for l in text.splitlines() if l.strip()]
+    names = [l for l in lines if not re.search(r"\$|NT|折|^\d+$", l)]
+    name = max(names, key=len) if names else (raw.get("alt") or "")
+    return {"name": name or raw.get("alt", ""), "price": price, "orig_price": orig}
+
+
 def extract_items(page, category):
-    out = []
-    for el in page.locator(SEL_ITEM).all():
-        href = el.get_attribute("href") or ""
-        m = re.search(ID_REGEX, href)
+    out = {}
+    for raw in page.evaluate(JS_CARDS, SEL_ITEM):
+        m = re.search(ID_REGEX, raw["href"])
         if not m:
             continue
-
-        def txt(sel):
-            loc = el.locator(sel).first
-            return loc.inner_text().strip() if loc.count() else ""
-
-        price = parse_price(txt(SEL_PRICE))
-        if price is None:
-            continue  # 抓不到價格就跳過，避免髒資料
-        orig = parse_price(txt(SEL_ORIG))
-        img = el.locator(SEL_IMG).first
-        img_src = ""
-        if img.count():
-            img_src = img.get_attribute("src") or img.get_attribute("data-src") or ""
-        out.append({
+        info = parse_card(raw)
+        if not info:
+            continue
+        out[m.group(1)] = {
             "id": m.group(1),
-            "name": txt(SEL_NAME),
-            "price": price,
-            "orig_price": orig,
-            "url": urljoin(BASE, href),
-            "img": urljoin(BASE, img_src) if img_src else "",
+            "name": info["name"],
+            "price": info["price"],
+            "orig_price": info["orig_price"],
+            "url": urljoin(BASE, raw["href"]),
+            "img": urljoin(BASE, raw["img"]) if raw["img"] else "",
             "category": category,
-        })
-    return out
+        }
+    return list(out.values())
+
+
+def clean_url(url):
+    """修正誤貼成 https://a.com/https://b.com/... 的網址"""
+    if url.count("https://") > 1:
+        url = "https://" + url.split("https://")[-1]
+    return url
 
 
 def diagnose(page, cat):
@@ -131,6 +172,7 @@ def crawl(debug=False):
         )
         page = ctx.new_page()
         for cat, url in CATEGORY_URLS.items():
+            url = clean_url(url)
             for pg in range(1, MAX_PAGES + 1):
                 sep = "&" if "?" in url else "?"
                 page.goto(f"{url}{sep}{PAGE_PARAM}={pg}",
