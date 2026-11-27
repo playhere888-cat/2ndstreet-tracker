@@ -20,9 +20,9 @@ BASE = "https://2ndstreet.com.tw"
 
 # 到網站上手動點進各分類頁，把網址整段貼進來
 CATEGORY_URLS = {
-    "all":  "https://2ndstreet.com.tw/https://store.2ndstreet.com.tw/v2/official/SalePageCategory/427321",
-    "new":  "https://2ndstreet.com.tw/https://store.2ndstreet.com.tw/v2/official/SalePageCategory/442464",
-    "sale": "https://2ndstreet.com.tw/https://store.2ndstreet.com.tw/v2/official/SalePageCategory/442514",
+    "all":  "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/427321",
+    "new":  "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/442464",
+    "sale": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/442514",
 }
 PAGE_PARAM = "page"      # 翻頁參數；若網站是 ?p=2 就改成 "p"
 MAX_PAGES = 30
