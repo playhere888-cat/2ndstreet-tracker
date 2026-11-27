@@ -307,9 +307,9 @@ def show_api_samples(responses, limit=3):
 
 def crawl(debug=False):
     items = {}
-    with sync_playwright() as p:
+        with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
-     ctx = browser.new_context(
+        ctx = browser.new_context(
             locale="zh-TW",
             timezone_id="Asia/Taipei",
             geolocation={"latitude": 25.0330, "longitude": 121.5654},
