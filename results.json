@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-27T10:01:04.070409+00:00",
+  "updated_at": "2026-11-27T10:21:30.391564+00:00",
   "total_items": 67,
   "items": [
     {
@@ -24,23 +24,9 @@
       "is_price_drop": false
     },
     {
-      "title": "【公館店】LOUIS VUITTON/手提包// US$606.66",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12095106",
-      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12095106/9/639295461419630000?v=1",
-      "is_new": false,
-      "is_price_drop": false
-    },
-    {
       "title": "【美麗華店】LOEWE/手提包// US$242.66",
       "url": "https://store.2ndstreet.com.tw/SalePage/Index/12306764",
       "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12306764/8/639304454427230000?v=1",
-      "is_new": false,
-      "is_price_drop": false
-    },
-    {
-      "title": "【忠孝敦南店】//手拿包// US$212.33 US$169.86",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11450566",
-      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11450566/9/639281782260170000?v=1",
       "is_new": false,
       "is_price_drop": false
     },
@@ -59,16 +45,9 @@
       "is_price_drop": false
     },
     {
-      "title": "【樹林秀泰店】COACH/手拿包// US$45.50 US$36.40",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11872165",
-      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11872165/7/639281766677530000?v=1",
-      "is_new": false,
-      "is_price_drop": false
-    },
-    {
-      "title": "Louis Vuitton/M58726/藍色/CAPUCINES BB SCRUNCHIE/兩用/肩背包/手提包 US$3,018.13 US$2,411.47",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11786838",
-      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11786838/9/639281771904430000?v=1",
+      "title": "【公館店】LOUIS VUITTON/手提包// US$606.66",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12095106",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12095106/9/639295461419630000?v=1",
       "is_new": false,
       "is_price_drop": false
     },
@@ -80,6 +59,20 @@
       "is_price_drop": false
     },
     {
+      "title": "【美麗華店】LOUIS VUITTON/手提包// US$606.66",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12085766",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12085766/5/639292005379270000?v=1",
+      "is_new": false,
+      "is_price_drop": false
+    },
+    {
+      "title": "【忠孝敦南店】//手拿包// US$212.33 US$169.86",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11450566",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11450566/9/639281782260170000?v=1",
+      "is_new": false,
+      "is_price_drop": false
+    },
+    {
       "title": "【汐止遠雄店】FENDI/托特包// US$182.00 US$145.60",
       "url": "https://store.2ndstreet.com.tw/SalePage/Index/11787565",
       "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11787565/9/639281779640700000?v=1",
@@ -87,9 +80,16 @@
       "is_price_drop": false
     },
     {
-      "title": "【美麗華店】LOUIS VUITTON/手提包// US$606.66",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12085766",
-      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12085766/5/639292005379270000?v=1",
+      "title": "Louis Vuitton/M58726/藍色/CAPUCINES BB SCRUNCHIE/兩用/肩背包/手提包 US$3,018.13 US$2,411.47",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11786838",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11786838/9/639281771904430000?v=1",
+      "is_new": false,
+      "is_price_drop": false
+    },
+    {
+      "title": "【樹林秀泰店】COACH/手拿包// US$45.50 US$36.40",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11872165",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11872165/7/639281766677530000?v=1",
       "is_new": false,
       "is_price_drop": false
     },
@@ -115,16 +115,16 @@
       "is_price_drop": false
     },
     {
-      "title": "【汐止遠雄店】Chloe/手提包// US$364.00 US$291.20",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11722261",
-      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11722261/9/639281779640700000?v=1",
+      "title": "【忠孝敦南店】GUCCI/手拿包//308362493075 US$288.16",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11999536",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11999536/9/639281754486530000?v=1",
       "is_new": false,
       "is_price_drop": false
     },
     {
-      "title": "【徐匯廣場店】MONTBLANC/手拿包//1974222 US$151.67",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12318027",
-      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12318027/9/639307845699200000?v=1",
+      "title": "【汐止遠雄店】Chloe/手提包// US$364.00 US$291.20",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11722261",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11722261/9/639281779640700000?v=1",
       "is_new": false,
       "is_price_drop": false
     },
@@ -143,30 +143,9 @@
       "is_price_drop": false
     },
     {
-      "title": "【忠孝敦南店】JACQUES/手提包// US$151.67 US$121.33",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11711815",
-      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11711815/9/639281774800570000?v=1",
-      "is_new": false,
-      "is_price_drop": false
-    },
-    {
-      "title": "【忠孝敦南店】GUCCI/手拿包//308362493075 US$288.16",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11999536",
-      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11999536/9/639281754486530000?v=1",
-      "is_new": false,
-      "is_price_drop": false
-    },
-    {
-      "title": "【逢甲福星店】COCCINELLE/手提包// US$30.33",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12285347",
-      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12285347/9/639299302896100000?v=1",
-      "is_new": false,
-      "is_price_drop": false
-    },
-    {
-      "title": "【微風南京店】HERMES/手提包// US$1,516.65",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12314789",
-      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12314789/9/639307847405000000?v=1",
+      "title": "【徐匯廣場店】MONTBLANC/手拿包//1974222 US$151.67",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12318027",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12318027/9/639307845699200000?v=1",
       "is_new": false,
       "is_price_drop": false
     },
@@ -174,27 +153,6 @@
       "title": "【汐止遠雄店】PRADA/托特包//110 US$182.00",
       "url": "https://store.2ndstreet.com.tw/SalePage/Index/11919341",
       "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11919341/9/639281763074670000?v=1",
-      "is_new": false,
-      "is_price_drop": false
-    },
-    {
-      "title": "【汐止遠雄店】PRADA/手拿包// US$60.67 US$45.50",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11678488",
-      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11678488/9/639281775200300000?v=1",
-      "is_new": false,
-      "is_price_drop": false
-    },
-    {
-      "title": "【台南仁德店】FENDI/手提包// US$303.33 US$273.00",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11512967",
-      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11512967/9/639287919166400000?v=1",
-      "is_new": false,
-      "is_price_drop": false
-    },
-    {
-      "title": "【汐止遠雄店】MIU MIU/手提包// US$242.66 US$194.13",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11624454",
-      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11624454/9/639281779244000000?v=1",
       "is_new": false,
       "is_price_drop": false
     },
@@ -220,9 +178,9 @@
       "is_price_drop": false
     },
     {
-      "title": "【忠孝敦南店】TOD’S/托特包//YELLOW TIMELESS 托特包 US$667.33",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12126369",
-      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12126369/9/639303237649870000?v=1",
+      "title": "【忠孝敦南店】JACQUES/手提包// US$151.67 US$121.33",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11711815",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11711815/9/639281774800570000?v=1",
       "is_new": false,
       "is_price_drop": false
     },
@@ -237,6 +195,62 @@
       "title": "【南港店】RABEANCO/手提包//M13 US$30.33",
       "url": "https://store.2ndstreet.com.tw/SalePage/Index/12154218",
       "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12154218/9/639313605511530000?v=1",
+      "is_new": false,
+      "is_price_drop": false
+    },
+    {
+      "title": "【汐止遠雄店】PRADA/手拿包// US$60.67 US$45.50",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11678488",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11678488/9/639281775200300000?v=1",
+      "is_new": false,
+      "is_price_drop": false
+    },
+    {
+      "title": "【逢甲福星店】COCCINELLE/手提包// US$30.33",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12285347",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12285347/9/639299302896100000?v=1",
+      "is_new": false,
+      "is_price_drop": false
+    },
+    {
+      "title": "【微風南京店】HERMES/手提包// US$1,516.65",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12314789",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12314789/9/639307847405000000?v=1",
+      "is_new": false,
+      "is_price_drop": false
+    },
+    {
+      "title": "【汐止遠雄店】COACH/手提包//42965 US$30.33",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11876008",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11876008/9/639281763028030000?v=1",
+      "is_new": false,
+      "is_price_drop": false
+    },
+    {
+      "title": "【忠孝敦南店】TOD’S/托特包//YELLOW TIMELESS 托特包 US$667.33",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12126369",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12126369/9/639303237649870000?v=1",
+      "is_new": false,
+      "is_price_drop": false
+    },
+    {
+      "title": "【樹林秀泰店】COACH/手拿包//f54057 US$60.67 US$45.50",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11778949",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11778949/8/639281770739900000?v=1",
+      "is_new": false,
+      "is_price_drop": false
+    },
+    {
+      "title": "【台南仁德店】FENDI/手提包// US$303.33 US$273.00",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11512967",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11512967/9/639287919166400000?v=1",
+      "is_new": false,
+      "is_price_drop": false
+    },
+    {
+      "title": "【汐止遠雄店】MIU MIU/手提包// US$242.66 US$194.13",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11624454",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11624454/9/639281779244000000?v=1",
       "is_new": false,
       "is_price_drop": false
     },
@@ -269,34 +283,6 @@
       "is_price_drop": false
     },
     {
-      "title": "【汐止遠雄店】COACH/手提包//42965 US$30.33",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11876008",
-      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11876008/9/639281763028030000?v=1",
-      "is_new": false,
-      "is_price_drop": false
-    },
-    {
-      "title": "【樹林秀泰店】COACH/手拿包//f54057 US$60.67 US$45.50",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11778949",
-      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11778949/8/639281770739900000?v=1",
-      "is_new": false,
-      "is_price_drop": false
-    },
-    {
-      "title": "【環球新北中和店】BURBERRY/手提包// US$166.83",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12117522",
-      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12117522/9/639301510475870000?v=1",
-      "is_new": false,
-      "is_price_drop": false
-    },
-    {
-      "title": "【逢甲福星店】COACH/手提包// US$54.60",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12321020",
-      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12321020/6/639310537047700000?v=1",
-      "is_new": false,
-      "is_price_drop": false
-    },
-    {
       "title": "【忠孝敦南店】BALLY/手提包//1424.99 US$106.17",
       "url": "https://store.2ndstreet.com.tw/SalePage/Index/11371489",
       "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11371489/9/639281782278230000?v=1",
@@ -318,9 +304,23 @@
       "is_price_drop": false
     },
     {
-      "title": "【高雄大立店】LONGCHAMP/手提包//1623089219 US$36.40 US$30.33",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11754102",
-      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11754102/9/639281771848000000?v=1",
+      "title": "【環球新北中和店】BURBERRY/手提包// US$166.83",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12117522",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12117522/9/639301510475870000?v=1",
+      "is_new": false,
+      "is_price_drop": false
+    },
+    {
+      "title": "【逢甲福星店】COACH/手提包// US$54.60",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12321020",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12321020/6/639310537047700000?v=1",
+      "is_new": false,
+      "is_price_drop": false
+    },
+    {
+      "title": "【南港店】ROBINMAY/手提包//黑膠狂想手提包 US$30.33",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11968824",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11968824/9/639281756829730000?v=1",
       "is_new": false,
       "is_price_drop": false
     },
