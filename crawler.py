@@ -37,6 +37,10 @@ BAG_ONLY = True
 BAG_WORDS = ("包", "袋")
 NOT_BAG_WORDS = ("錢包", "皮夾", "長夾", "短夾", "零錢", "卡夾", "卡包", "名片", "鑰匙", "包鞋", "包頭")
 
+# 已售完 / 補貨中的商品不收錄
+SOLD_RE = re.compile(r"售完|售罄|缺貨|補貨中|SOLD\s*OUT|已售出(?!\s*[\d,]+)", re.I)
+DIAG = True   # 在 log 印出卡片原始文字與 API 範例，用來檢查價格；確認沒問題後可改 False
+
 DATA_FILE = Path("results.json")  # 前端 fetch("./results.json") 讀的就是這個檔
 NEW_DAYS = 3                      # 首次出現後幾天內算「新上架」
 MIN_KEEP_RATIO = 0.5              # 本次數量低於上次 50% 視為異常，不覆蓋資料
@@ -48,6 +52,17 @@ def category_of(name):
     head = (name or "").split("//")[0]
     parts = [p.strip() for p in head.split("/") if p.strip()]
     return parts[-1] if len(parts) >= 2 else head
+
+
+def brand_of(name):
+    """'【桃園統領店】MOORER/背心//FIRE-WK' -> 'MOORER'；抓不到回傳 '其他'"""
+    head = (name or "").split("//")[0]
+    parts = [p.strip() for p in head.split("/") if p.strip()]
+    if len(parts) < 2:
+        return "其他"
+    brand = re.sub(r"^【[^】]*】\s*", "", parts[0])
+    brand = re.sub(r"\s+", " ", brand).strip().upper()
+    return brand or "其他"
 
 
 def is_bag(name):
@@ -96,7 +111,11 @@ JS_CARDS = r"""
       (i) => !/ProductBadge|badge/i.test((i.src || "") + (i.alt || "") + (i.getAttribute("data-qe-id") || ""))
     );
     const img = imgs[0] || null;
+    const soldEl = card.querySelector(
+      '[class*="soldout" i], [class*="sold-out" i], [class*="sold_out" i], [class*="out-of-stock" i], [class*="outofstock" i]'
+    );
     out.push({
+      sold: !!soldEl,
       href: a.getAttribute("href") || "",
       text: card.innerText || "",
       img: img ? (img.currentSrc || img.src || img.getAttribute("data-src") || "") : "",
@@ -131,7 +150,7 @@ def parse_card(raw):
     return {"name": name or raw.get("alt", ""), "price": price, "orig_price": orig}
 
 
-def extract_items(page, category):
+def extract_items(page, category, samples=None):
     out = {}
     for raw in page.evaluate(JS_CARDS, SEL_ITEM):
         m = re.search(ID_REGEX, raw["href"])
@@ -140,7 +159,10 @@ def extract_items(page, category):
         info = parse_card(raw)
         if not info:
             continue
+        if samples is not None and len(samples) < 4:
+            samples.append(raw["text"])
         out[m.group(1)] = {
+            "sold": bool(raw.get("sold")) or bool(SOLD_RE.search(raw["text"])),
             "id": m.group(1),
             "name": info["name"],
             "price": info["price"],
@@ -186,6 +208,22 @@ def diagnose(page, cat):
     print("----- 診斷結束 -----")
 
 
+def show_api_samples(responses, limit=3):
+    """診斷：印出含價格的 JSON API 回應開頭，用來確認價格欄位"""
+    shown = 0
+    for r in responses[:60]:
+        try:
+            body = r.text()
+        except Exception:
+            continue
+        if len(body) > 200 and re.search(r"price", body, re.I):
+            print("  API:", r.url[:120])
+            print("      ", body[:500].replace("\n", " "))
+            shown += 1
+            if shown >= limit:
+                break
+
+
 def crawl(debug=False):
     items = {}
     with sync_playwright() as p:
@@ -198,8 +236,18 @@ def crawl(debug=False):
             ),
         )
         page = ctx.new_page()
+        api_responses = []
+        if DIAG:
+            def _collect(r):
+                try:
+                    if "json" in (r.headers.get("content-type") or ""):
+                        api_responses.append(r)
+                except Exception:
+                    pass
+            page.on("response", _collect)
         for cat, url in CATEGORY_URLS.items():
             url = clean_url(url)
+            api_responses.clear()
             for pg in range(1, MAX_PAGES + 1):
                 sep = "&" if "?" in url else "?"
                 page.goto(f"{url}{sep}{PAGE_PARAM}={pg}",
@@ -213,10 +261,22 @@ def crawl(debug=False):
                     except Exception as e:   # 除錯檔失敗不影響主流程
                         print("  除錯檔儲存失敗（略過）:", str(e)[:80])
 
-                got = extract_items(page, cat)
+                samples = [] if DIAG else None
+                got = extract_items(page, cat, samples)
                 total = len(got)
+                if DIAG:
+                    print(f"--- [{cat}] 卡片原始文字範例（| 代表換行）---")
+                    for t in samples:
+                        print("   ", t.replace("\n", " | ")[:160])
+                    show_api_samples(api_responses)
                 if BAG_ONLY:
                     got = [i for i in got if is_bag(i["name"])]
+                sold_n = sum(1 for i in got if i["sold"])
+                if got and sold_n / len(got) > 0.6:
+                    print(f"  警告：{sold_n}/{len(got)} 件被判定售完，疑似誤判，本頁不排除售完商品")
+                else:
+                    got = [i for i in got if not i["sold"]]
+                    print(f"  已排除售完/補貨中 {sold_n} 件")
                 fresh = [i for i in got
                          if i["id"] not in items or cat not in items[i["id"]]["tags"]]
                 print(f"[{cat}] page {pg}: 共 {total} 件，其中包包 {len(got)} 件")
@@ -289,6 +349,8 @@ def merge_with_previous(current):
         # 「新上架」與「已降價」不重複顯示：有降價的只算降價
         if it["price_dropped"]:
             it["is_new"] = False
+
+        it["brand"] = brand_of(it["name"])
 
         # 對應前端 normalizeItem 讀的欄位
         it["title"] = it["name"]
