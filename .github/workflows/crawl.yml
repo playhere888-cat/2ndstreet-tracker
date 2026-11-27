@@ -11,6 +11,7 @@ permissions:
 jobs:
   crawl:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
@@ -24,7 +25,7 @@ jobs:
           playwright install --with-deps chromium
 
       - name: Run crawler
-        run: python crawler.py --debug
+        run: python crawler.py
 
       - name: Upload debug files
         if: always()
