@@ -45,14 +45,18 @@ def parse_price(text):
 
 
 def scroll_to_bottom(page):
-    """處理 lazy load：一路捲到底，直到商品數不再增加"""
-    last = -1
-    for _ in range(15):
-        page.mouse.wheel(0, 4000)
-        time.sleep(0.8)
+    """處理無限捲動：一直往下捲，連續 4 次數量沒增加才停（最多 80 次）"""
+    last, still = -1, 0
+    for _ in range(80):
+        page.mouse.wheel(0, 5000)
+        time.sleep(1.0)
         n = page.locator(SEL_ITEM).count()
         if n == last:
-            break
+            still += 1
+            if still >= 4:
+                break
+        else:
+            still = 0
         last = n
 
 
@@ -210,8 +214,17 @@ def merge_with_previous(current):
     """和上次快照比對，算出『新上架』與『降價』"""
     prev = {}
     if DATA_FILE.exists():
-        data = json.loads(DATA_FILE.read_text("utf-8"))
-        prev = {i["id"]: i for i in data.get("items", [])}
+        try:
+            data = json.loads(DATA_FILE.read_text("utf-8"))
+        except ValueError:
+            data = {}
+        rows = data.get("items", []) if isinstance(data, dict) else data
+        prev = {
+            i["id"]: i for i in rows
+            if isinstance(i, dict) and {"id", "first_seen", "price"} <= set(i)
+        }
+        if rows and not prev:
+            print("舊版 results.json 格式不相容，視為第一次執行。")
 
     if prev and len(current) < len(prev) * MIN_KEEP_RATIO:
         sys.exit(f"異常：本次只抓到 {len(current)} 筆（上次 {len(prev)}），"
@@ -226,7 +239,8 @@ def merge_with_previous(current):
         on_sale_page = bool(it["orig_price"] and it["orig_price"] > it["price"])
 
         if old is None:
-            it["first_seen"] = now
+            # 第一次執行只是建立基準：首次出現時間記為很早以前，避免全部被當成新上架
+            it["first_seen"] = now if prev else "1970-01-01T00:00:00+00:00"
             # 第一次執行（沒有舊資料）時，不把整站都算成新上架
             it["is_new"] = bool(prev) or "new" in it["tags"]
             it["price_history"] = [{"t": now, "p": it["price"]}]
