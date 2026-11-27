@@ -1,5 +1,9 @@
 """
-2nd STREET 台灣 包包 新上架 / 降價 爬蟲（重新整理完整版）
+2nd STREET 台灣 包包 新上架 / 降價 爬蟲（降價分類判定修復版）
+
+安裝：pip install playwright && playwright install chromium
+執行：python crawler.py          -> 產生 results.json（前端直接讀取）
+除錯：python crawler.py --debug  -> 另存 debug/*.html 與截圖
 """
 import json
 import re
@@ -55,7 +59,7 @@ USD_TO_TWD = 32.5
 
 DATA_FILE = Path("results.json")
 NEW_DAYS = 3
-MIN_KEEP_RATIO = 0.2
+MIN_KEEP_RATIO = 0.05
 # ==================================================
 
 
@@ -121,7 +125,7 @@ JS_CARDS = r"""
   const out = [];
   document.querySelectorAll(sel).forEach((a) => {
     let card = a;
-    for (let i = 0; i < 5 && card && !/\$|NT/.test(card.innerText || ""); i++) {
+    for (let i = 0; i < 6 && card && !/\$|NT|[\d,]{3,}/.test(card.innerText || ""); i++) {
       card = card.parentElement;
     }
     if (!card) return;
@@ -132,10 +136,14 @@ JS_CARDS = r"""
     const soldEl = card.querySelector(
       '[class*="soldout" i], [class*="sold-out" i], [class*="sold_out" i], [class*="out-of-stock" i], [class*="outofstock" i]'
     );
+    const strikeTexts = Array.from(card.querySelectorAll("del, s, strike, [class*='line-through' i], [style*='line-through' i]"))
+      .map((el) => (el.innerText || "").trim())
+      .filter(Boolean);
     out.push({
       sold: !!soldEl,
       href: a.getAttribute("href") || "",
       text: card.innerText || "",
+      strikeText: strikeTexts.join(" "),
       img: img ? (img.currentSrc || img.src || img.getAttribute("data-src") || "") : "",
       alt: img ? (img.alt || "") : "",
     });
@@ -180,36 +188,50 @@ def _extract_prices_from_json(obj, found):
             _extract_prices_from_json(item, found)
 
 
+def _extract_num_list(text, is_us, has_decimal):
+    raw_matches = re.findall(r"(?:US\$|NT\$|\$|TWD|USD)?\s*([\d,]+(?:\.\d+)?)", text or "")
+    vals = []
+    for m in raw_matches:
+        try:
+            v = float(m.replace(",", ""))
+            if v > 0:
+                vals.append(v)
+        except ValueError:
+            continue
+    if not vals:
+        return []
+    if is_us or has_decimal:
+        return [round(v * USD_TO_TWD) for v in vals]
+    return [round(v) for v in vals if v >= 10]
+
+
 def parse_card(raw):
     text = raw["text"]
-    if len(text) > 400:
+    if len(text) > 500:
         return None
 
     is_us = bool(re.search(r"\bUS\$|\bUSD\b", text, flags=re.I))
-    raw_matches = re.findall(r"(?:US\$|NT\$|\$|TWD|USD)?\s*([\d,]+(?:\.\d+)?)", text)
-    amounts = []
-    for m in raw_matches:
-        try:
-            val = float(m.replace(",", ""))
-            if val > 0:
-                amounts.append(val)
-        except ValueError:
-            continue
+    has_decimal = bool(re.search(r"\d[\d,]*\.\d+", text))
+    amounts = _extract_num_list(text, is_us, has_decimal)
+
+    if not amounts:
+        for l in text.splitlines():
+            l = l.strip()
+            if re.fullmatch(r"[\d,]{3,}", l):
+                val = int(l.replace(",", ""))
+                amounts.append(round(val * USD_TO_TWD) if is_us else val)
 
     if not amounts:
         return None
 
-    has_decimal = any("." in m for m in raw_matches)
-    if is_us or has_decimal:
-        converted = [round(a * USD_TO_TWD) for a in amounts]
-        price = min(converted)
-        orig = max(converted) if max(converted) > price else None
-    else:
-        int_amounts = [round(a) for a in amounts if a >= 10]
-        if not int_amounts:
-            return None
-        price = min(int_amounts)
-        orig = max(int_amounts) if max(int_amounts) > price else None
+    price = min(amounts)
+    orig = max(amounts) if max(amounts) > price else None
+
+    strike_amounts = _extract_num_list(raw.get("strikeText", ""), is_us, has_decimal)
+    if strike_amounts:
+        max_strike = max(strike_amounts)
+        if max_strike > price:
+            orig = max_strike
 
     lines = [l.strip() for l in text.splitlines() if l.strip()]
     names = [l for l in lines if not re.search(r"\$|NT|USD|TWD|折|^[\d,\.]+$", l, flags=re.I)]
@@ -306,7 +328,7 @@ def crawl(debug=False):
                 if TARGET_BRANDS:
                     before_brand = len(got)
                     got = [i for i in got if is_target_brand(i["name"])]
-                    print(f"  品牌篩選：{before_brand} -> {len(got)} 件")
+                    print(f"  [{cat}] 品牌篩選：{before_brand} -> {len(got)} 件")
 
                 sold_n = sum(1 for i in got if i["sold"])
                 if got and sold_n / len(got) > 0.6:
@@ -362,13 +384,16 @@ def merge_with_previous(current):
     for pid, it in current.items():
         old = prev.get(pid)
         it["tags"] = sorted(it["tags"])
-        on_sale_page = bool(it["orig_price"] and it["orig_price"] > it["price"])
+
+        # 核心修正：來自 sale 分類頁、或有原價比較高、或比歷史價格低，皆視為降價
+        is_sale_cat = "sale" in it["tags"]
+        has_orig_drop = bool(it["orig_price"] and it["orig_price"] > it["price"])
 
         if old is None:
             it["first_seen"] = now if prev else "1970-01-01T00:00:00+00:00"
-            it["is_new"] = bool(prev) or "new" in it["tags"]
+            it["is_new"] = (bool(prev) or "new" in it["tags"]) and not is_sale_cat
             it["price_history"] = [{"t": now, "p": it["price"]}]
-            it["price_dropped"] = on_sale_page
+            it["price_dropped"] = is_sale_cat or has_orig_drop
         else:
             it["first_seen"] = old["first_seen"]
             hist = old.get("price_history", [])
@@ -376,11 +401,10 @@ def merge_with_previous(current):
                 hist.append({"t": now, "p": it["price"]})
             it["price_history"] = hist
             age = now_dt - datetime.fromisoformat(old["first_seen"])
-            it["is_new"] = age.days < NEW_DAYS or "new" in it["tags"]
-            it["price_dropped"] = (it["price"] < old["price"]) or on_sale_page
+            is_hist_drop = it["price"] < old["price"]
 
-        if it["price_dropped"]:
-            it["is_new"] = False
+            it["price_dropped"] = is_sale_cat or has_orig_drop or is_hist_drop
+            it["is_new"] = (age.days < NEW_DAYS or "new" in it["tags"]) and not it["price_dropped"]
 
         it["brand"] = brand_of(it["name"])
         it["title"] = it["name"]
