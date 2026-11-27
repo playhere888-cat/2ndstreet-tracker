@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2nd STREET 包包 / 新上架圖鑑</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+      background: #f6f7f9;
+      color: #1f2328;
+      padding: 16px;
+    }
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 20px;
+      margin: 0 0 8px;
+    }
+    .meta {
+      font-size: 13px;
+      color: #57606a;
+      margin-bottom: 12px;
+    }
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .filter-btn {
+      border: 1px solid #d0d7de;
+      background: #fff;
+      color: #1f2328;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .filter-btn.active {
+      background: #111827;
+      color: #fff;
+      border-color: #111827;
+      font-weight: 600;
+    }
+    .search-box {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #d0d7de;
+      border-radius: 10px;
+      font-size: 14px;
+      background: #fff;
+      margin-bottom: 16px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    @media (min-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+      display: flex;
+      flex-direction: column;
+    }
+    .thumb-wrap {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      background: #f3f4f6;
+      overflow: hidden;
+    }
+    .thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .badges {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      z-index: 2;
+    }
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+    }
+    .badge-new {
+      background: #1f2937;
+    }
+    .badge-drop {
+      background: #dc2626;
+    }
+    .card-body {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+    .title {
+      font-size: 13px;
+      line-height: 1.45;
+      color: #1f2328;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex: 1;
+    }
+    .link {
+      font-size: 13px;
+      color: #0969da;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .empty {
+      text-align: center;
+      padding: 40px 16px;
+      color: #6e7781;
+      grid-column: 1 / -1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎒 2nd STREET 包包 / 新上架圖鑑</h1>
+    <div class="meta" id="metaText">載入中...</div>
+
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all" id="btnAll">全部商品</button>
+      <button class="filter-btn" data-filter="new" id="btnNew">新上架</button>
+      <button class="filter-btn" data-filter="drop" id="btnDrop">已降價</button>
+    </div>
+
+    <input
+      type="text"
+      class="search-box"
+      id="searchInput"
+      placeholder="搜尋品牌或關鍵字（如 VERSACE, LOUIS VUITTON, 手提包...）"
+    />
+
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <script>
+    let allItems = [];
+    let currentFilter = "all";
+
+    function normalizeItem(raw) {
+      const title = raw.title || raw.name || "2nd STREET 包包";
+      const url = raw.url || raw.link || "#";
+      const image = raw.image || raw.img || raw.thumb || "";
+      const isNew = Boolean(raw.is_new ?? raw.isNew ?? false);
+      const isDrop = Boolean(raw.is_price_drop ?? raw.isPriceDrop ?? raw.price_drop ?? false);
+      return { title, url, image, isNew, isDrop };
+    }
+
+    function updateCounts() {
+      const newCount = allItems.filter((x) => x.isNew).length;
+      const dropCount = allItems.filter((x) => x.isDrop).length;
+      const filtered = getFilteredItems();
+
+      document.getElementById("btnAll").textContent = `全部商品 (${allItems.length})`;
+      document.getElementById("btnNew").textContent = `新上架 (${newCount})`;
+      document.getElementById("btnDrop").textContent = `已降價 (${dropCount})`;
+
+      const metaEl = document.getElementById("metaText");
+      metaEl.textContent = `顯示 ${filtered.length} 件｜新上架 ${newCount} 件・已降價 ${dropCount} 件（總計 ${allItems.length} 件獨立商品）`;
+    }
+
+    function getFilteredItems() {
+      const q = (document.getElementById("searchInput").value || "").trim().toLowerCase();
+      return allItems.filter((item) => {
+        if (currentFilter === "new" && !item.isNew) return false;
+        if (currentFilter === "drop" && !item.isDrop) return false;
+        if (q && !item.title.toLowerCase().includes(q)) return false;
+        return true;
+      });
+    }
+
+    function render() {
+      updateCounts();
+      const grid = document.getElementById("grid");
+      const list = getFilteredItems();
+
+      if (!list.length) {
+        grid.innerHTML = `<div class="empty">找不到符合的商品</div>`;
+        return;
+      }
+
+      grid.innerHTML = list
+        .map((item) => {
+          const badges = [
+            item.isNew ? `<span class="badge badge-new">新上架</span>` : "",
+            item.isDrop ? `<span class="badge badge-drop">已降價↓</span>` : "",
+          ].join("");
+
+          const imgHtml = item.image
+            ? `<img src="${item.image}" alt="${item.title.replace(/"/g, "&quot;")}" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'" />`
+            : "";
+
+          return `
+            <article class="card">
+              <div class="thumb-wrap">
+                <div class="badges">${badges}</div>
+                ${imgHtml}
+              </div>
+              <div class="card-body">
+                <div class="title">${item.title}</div>
+                <a class="link" href="${item.url}" target="_blank" rel="noopener noreferrer">查看商品 →</a>
+              </div>
+            </article>
+          `;
+        })
+        .join("");
+    }
+
+    document.querySelectorAll(".filter-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentFilter = btn.dataset.filter;
+        render();
+      });
+    });
+
+    document.getElementById("searchInput").addEventListener("input", render);
+
+    async function loadData() {
+      try {
+        const res = await fetch(`./results.json?t=${Date.now()}`);
+        const data = await res.json();
+        const rawList = Array.isArray(data) ? data : (data.items || []);
+        allItems = rawList.map(normalizeItem);
+        render();
+      } catch (err) {
+        document.getElementById("metaText").textContent = "資料載入失敗，請稍後再試。";
+        document.getElementById("grid").innerHTML = `<div class="empty">無法讀取 results.json</div>`;
+      }
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
