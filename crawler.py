@@ -20,9 +20,9 @@ BASE = "https://2ndstreet.com.tw"
 
 # 到網站上手動點進各分類頁，把網址整段貼進來
 CATEGORY_URLS = {
-    "all":  "https://2ndstreet.com.tw/https://store.2ndstreet.com.tw/v2/official/SalePageCategory/427321",
-    "new":  "https://2ndstreet.com.tw/https://store.2ndstreet.com.tw/v2/official/SalePageCategory/442464",
-    "sale": "https://2ndstreet.com.tw/https://store.2ndstreet.com.tw/v2/official/SalePageCategory/442514",
+    "all":  "https://2ndstreet.com.tw/請貼上包包全部商品頁網址",
+    "new":  "https://2ndstreet.com.tw/請貼上新上架頁網址",
+    "sale": "https://2ndstreet.com.tw/請貼上降價頁網址",
 }
 PAGE_PARAM = "page"      # 翻頁參數；若網站是 ?p=2 就改成 "p"
 MAX_PAGES = 30
@@ -91,6 +91,33 @@ def extract_items(page, category):
     return out
 
 
+def diagnose(page, cat):
+    """抓到 0 筆時，把頁面狀況印在 log，判斷是被擋還是選擇器錯"""
+    print(f"----- 診斷 [{cat}] -----")
+    print("最終網址:", page.url)
+    print("頁面標題:", page.title())
+    body = page.evaluate("document.body ? document.body.innerText : ''") or ""
+    print("內文前 200 字:", body.strip()[:200].replace("\n", " | "))
+    print("a 數量:", page.locator("a").count(), "／ img 數量:", page.locator("img").count())
+    hrefs = page.evaluate(
+        "Array.from(document.querySelectorAll('a[href]')).map(a=>a.getAttribute('href'))"
+    )
+    seen = []
+    for h in hrefs:
+        if h and h not in seen and not h.startswith(("#", "javascript")):
+            seen.append(h)
+    print("連結範例（前 25 個）:")
+    for h in seen[:25]:
+        print("  ", h)
+    cards = page.evaluate(
+        "Array.from(document.querySelectorAll('li,article,div')).filter(e=>e.querySelector('img')&&e.querySelector('a')&&/\\d{3,}/.test(e.innerText)&&e.innerText.length<200).slice(0,2).map(e=>e.outerHTML.slice(0,600))"
+    )
+    print("疑似商品卡片 HTML 範例:")
+    for c in cards:
+        print("  ", c.replace("\n", " "))
+    print("----- 診斷結束 -----")
+
+
 def crawl(debug=False):
     items = {}
     with sync_playwright() as p:
@@ -118,6 +145,8 @@ def crawl(debug=False):
                 fresh = [i for i in got
                          if i["id"] not in items or cat not in items[i["id"]]["tags"]]
                 print(f"[{cat}] page {pg}: {len(got)} items")
+                if not got and pg == 1:
+                    diagnose(page, cat)
                 if not got or not fresh:   # 沒東西或整頁重複 = 已到最後一頁
                     break
 
