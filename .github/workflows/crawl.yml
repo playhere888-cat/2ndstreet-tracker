@@ -24,7 +24,15 @@ jobs:
           playwright install --with-deps chromium
 
       - name: Run crawler
-        run: python crawler.py
+        run: python crawler.py --debug
+
+      - name: Upload debug files
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug
+          path: debug/
+          if-no-files-found: ignore
 
       - name: Commit results
         run: |
