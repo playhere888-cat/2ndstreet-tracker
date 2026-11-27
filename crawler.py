@@ -26,7 +26,7 @@ CATEGORY_URLS = {
     # "all": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/這裡換成分類編號",
 }
 PAGE_PARAM = "page"      # 翻頁參數；若網站不支援翻頁，程式會偵測到重複頁自動停止
-MAX_PAGES = 30
+MAX_PAGES = 1         # 91APP 分類頁是無限捲動，不支援 ?page=，只需載入第 1 頁
 
 # 商品連結：91APP 商品頁格式為 /SalePage/Index/商品編號（也相容 /SalePage/商品編號）
 SEL_ITEM = "a[href*='/SalePage/']"
@@ -47,7 +47,11 @@ def parse_price(text):
 def scroll_to_bottom(page):
     """處理無限捲動：一直往下捲，連續 4 次數量沒增加才停（最多 80 次）"""
     last, still = -1, 0
+    start = time.time()
     for _ in range(80):
+        if time.time() - start > 240:   # 單一分類最多捲 4 分鐘
+            print("  捲動超過 4 分鐘，先用目前載入的商品")
+            break
         page.mouse.wheel(0, 5000)
         time.sleep(1.0)
         n = page.locator(SEL_ITEM).count()
@@ -183,9 +187,12 @@ def crawl(debug=False):
                           wait_until="networkidle", timeout=60000)
                 scroll_to_bottom(page)
                 if debug:
-                    Path("debug").mkdir(exist_ok=True)
-                    Path(f"debug/{cat}_{pg}.html").write_text(page.content(), encoding="utf-8")
-                    page.screenshot(path=f"debug/{cat}_{pg}.png", full_page=True)
+                    try:
+                        Path("debug").mkdir(exist_ok=True)
+                        Path(f"debug/{cat}_{pg}.html").write_text(page.content(), encoding="utf-8")
+                        page.screenshot(path=f"debug/{cat}_{pg}.png", timeout=10000)
+                    except Exception as e:   # 除錯檔失敗不影響主流程
+                        print("  除錯檔儲存失敗（略過）:", str(e)[:80])
 
                 got = extract_items(page, cat)
                 fresh = [i for i in got
