@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T15:15:46+00:00",
+ "updated": "2026-11-27T15:26:15+00:00",
  "items": [
   {
    "sold": false,
@@ -8334,7 +8334,6 @@
     "sale"
    ],
    "first_seen": "2026-11-27T15:15:46+00:00",
-   "is_new": false,
    "price_history": [
     {
      "t": "2026-11-27T15:15:46+00:00",
@@ -8342,6 +8341,7 @@
     }
    ],
    "price_dropped": true,
+   "is_new": false,
    "brand": "SALVATORE FERRAGAMO",
    "title": "【美麗華店】Salvatore Ferragamo/公事包//FB247204",
    "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11882104/0/639281475547530000?v=1",
@@ -8360,7 +8360,6 @@
     "sale"
    ],
    "first_seen": "2026-11-27T15:15:46+00:00",
-   "is_new": false,
    "price_history": [
     {
      "t": "2026-11-27T15:15:46+00:00",
@@ -8368,6 +8367,7 @@
     }
    ],
    "price_dropped": true,
+   "is_new": false,
    "brand": "PRADA",
    "title": "【忠孝敦南店】PRADA/手提包//",
    "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11882036/0/639281474648070000?v=1",
@@ -8386,7 +8386,6 @@
     "sale"
    ],
    "first_seen": "2026-11-27T15:15:46+00:00",
-   "is_new": false,
    "price_history": [
     {
      "t": "2026-11-27T15:15:46+00:00",
@@ -8394,6 +8393,7 @@
     }
    ],
    "price_dropped": true,
+   "is_new": false,
    "brand": "CHANEL",
    "title": "【高雄大遠百店】CHANEL/手提包//6950795",
    "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11882006/0/639281476049100000?v=1",
@@ -8412,7 +8412,6 @@
     "sale"
    ],
    "first_seen": "2026-11-27T15:15:46+00:00",
-   "is_new": false,
    "price_history": [
     {
      "t": "2026-11-27T15:15:46+00:00",
@@ -8420,6 +8419,7 @@
     }
    ],
    "price_dropped": true,
+   "is_new": false,
    "brand": "FENDI",
    "title": "【台南中正店】FENDI/側背包//8BM310-SFR-199-12085",
    "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11882004/0/639313423693530000?v=1",
@@ -8438,7 +8438,6 @@
     "sale"
    ],
    "first_seen": "2026-11-27T15:15:46+00:00",
-   "is_new": false,
    "price_history": [
     {
      "t": "2026-11-27T15:15:46+00:00",
@@ -8446,6 +8445,7 @@
     }
    ],
    "price_dropped": true,
+   "is_new": false,
    "brand": "FENDI",
    "title": "【台北西門漢中店】FENDI/側背包//7VA537",
    "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11881796/0/639281473419430000?v=1",
@@ -8464,7 +8464,6 @@
     "sale"
    ],
    "first_seen": "2026-11-27T15:15:46+00:00",
-   "is_new": false,
    "price_history": [
     {
      "t": "2026-11-27T15:15:46+00:00",
@@ -8472,6 +8471,7 @@
     }
    ],
    "price_dropped": true,
+   "is_new": false,
    "brand": "SALVATORE FERRAGAMO",
    "title": "【高雄大立店】Salvatore Ferragamo/側背包//FB-24 5019",
    "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11881784/0/639298086668300000?v=1",
@@ -8490,7 +8490,6 @@
     "sale"
    ],
    "first_seen": "2026-11-27T15:15:46+00:00",
-   "is_new": false,
    "price_history": [
     {
      "t": "2026-11-27T15:15:46+00:00",
@@ -8498,6 +8497,7 @@
     }
    ],
    "price_dropped": true,
+   "is_new": false,
    "brand": "CHLOE",
    "title": "【南港店】Chloe/側背包//04135765-9",
    "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11877443/0/639298183494070000?v=1",
@@ -8516,7 +8516,6 @@
     "sale"
    ],
    "first_seen": "2026-11-27T15:15:46+00:00",
-   "is_new": false,
    "price_history": [
     {
      "t": "2026-11-27T15:15:46+00:00",
@@ -8524,6 +8523,7 @@
     }
    ],
    "price_dropped": true,
+   "is_new": false,
    "brand": "GUCCI",
    "title": "【南港店】GUCCI/側背包//443497 520981",
    "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11877435/0/639298183518900000?v=1",
@@ -8542,7 +8542,6 @@
     "sale"
    ],
    "first_seen": "2026-11-27T15:15:46+00:00",
-   "is_new": false,
    "price_history": [
     {
      "t": "2026-11-27T15:15:46+00:00",
@@ -8550,6 +8549,7 @@
     }
    ],
    "price_dropped": true,
+   "is_new": false,
    "brand": "GUCCI",
    "title": "【誠品生活板橋店】GUCCI/腰包//b035739143",
    "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11876966/0/639294477395930000?v=1",
@@ -8568,7 +8568,6 @@
     "sale"
    ],
    "first_seen": "2026-11-27T15:15:46+00:00",
-   "is_new": false,
    "price_history": [
     {
      "t": "2026-11-27T15:15:46+00:00",
@@ -8576,6 +8575,7 @@
     }
    ],
    "price_dropped": true,
+   "is_new": false,
    "brand": "PRADA",
    "title": "【美麗華店】PRADA/包//7/G",
    "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11876816/0/639298184346000000?v=1",
@@ -8594,7 +8594,6 @@
     "sale"
    ],
    "first_seen": "2026-11-27T15:15:46+00:00",
-   "is_new": false,
    "price_history": [
     {
      "t": "2026-11-27T15:15:46+00:00",
@@ -8602,6 +8601,7 @@
     }
    ],
    "price_dropped": true,
+   "is_new": false,
    "brand": "LOUIS VUITTON",
    "title": "【基隆店】LOUIS VUITTON/手提包//m40145",
    "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11876367/0/639281473871270000?v=1",
@@ -8620,7 +8620,6 @@
     "sale"
    ],
    "first_seen": "2026-11-27T15:15:46+00:00",
-   "is_new": false,
    "price_history": [
     {
      "t": "2026-11-27T15:15:46+00:00",
@@ -8628,6 +8627,7 @@
     }
    ],
    "price_dropped": true,
+   "is_new": false,
    "brand": "LOUIS VUITTON",
    "title": "【基隆店】LOUIS VUITTON/手提包//",
    "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11876336/0/639281473869800000?v=1",
