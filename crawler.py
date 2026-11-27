@@ -32,10 +32,29 @@ MAX_PAGES = 1         # 91APP 分類頁是無限捲動，不支援 ?page=，只�
 SEL_ITEM = "a[href*='/SalePage/']"
 ID_REGEX = r"/SalePage/(?:Index/)?(\d+)"
 
+# 只保留包包：商品名稱格式為「【店名】品牌/品類//型號」，用「品類」判斷
+BAG_ONLY = True
+BAG_WORDS = ("包", "袋")
+NOT_BAG_WORDS = ("錢包", "皮夾", "長夾", "短夾", "零錢", "卡夾", "卡包", "名片", "鑰匙", "包鞋", "包頭")
+
 DATA_FILE = Path("results.json")  # 前端 fetch("./results.json") 讀的就是這個檔
 NEW_DAYS = 3                      # 首次出現後幾天內算「新上架」
 MIN_KEEP_RATIO = 0.5              # 本次數量低於上次 50% 視為異常，不覆蓋資料
 # ================================================================
+
+
+def category_of(name):
+    """'【桃園統領店】MOORER/背心//FIRE-WK' -> '背心'"""
+    head = (name or "").split("//")[0]
+    parts = [p.strip() for p in head.split("/") if p.strip()]
+    return parts[-1] if len(parts) >= 2 else head
+
+
+def is_bag(name):
+    cat = category_of(name)
+    if any(w in cat for w in NOT_BAG_WORDS):
+        return False
+    return any(w in cat for w in BAG_WORDS)
 
 
 def parse_price(text):
@@ -195,10 +214,13 @@ def crawl(debug=False):
                         print("  除錯檔儲存失敗（略過）:", str(e)[:80])
 
                 got = extract_items(page, cat)
+                total = len(got)
+                if BAG_ONLY:
+                    got = [i for i in got if is_bag(i["name"])]
                 fresh = [i for i in got
                          if i["id"] not in items or cat not in items[i["id"]]["tags"]]
-                print(f"[{cat}] page {pg}: {len(got)} items")
-                if not got and pg == 1:
+                print(f"[{cat}] page {pg}: 共 {total} 件，其中包包 {len(got)} 件")
+                if total == 0 and pg == 1:
                     diagnose(page, cat)
                 if not got or not fresh:   # 沒東西或整頁重複 = 已到最後一頁
                     break
@@ -230,6 +252,8 @@ def merge_with_previous(current):
             i["id"]: i for i in rows
             if isinstance(i, dict) and {"id", "first_seen", "price"} <= set(i)
         }
+        if BAG_ONLY:
+            prev = {k: v for k, v in prev.items() if is_bag(v.get("name", ""))}
         if rows and not prev:
             print("舊版 results.json 格式不相容，視為第一次執行。")
 
@@ -261,6 +285,10 @@ def merge_with_previous(current):
             age = now_dt - datetime.fromisoformat(old["first_seen"])
             it["is_new"] = age.days < NEW_DAYS or "new" in it["tags"]
             it["price_dropped"] = (it["price"] < old["price"]) or on_sale_page
+
+        # 「新上架」與「已降價」不重複顯示：有降價的只算降價
+        if it["price_dropped"]:
+            it["is_new"] = False
 
         # 對應前端 normalizeItem 讀的欄位
         it["title"] = it["name"]
