@@ -32,6 +32,17 @@
       border-color: #111827;
       font-weight: 600;
     }
+    .controls-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    @media (min-width: 640px) {
+      .controls-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
     .search-box {
       width: 100%;
       padding: 10px 14px;
@@ -39,7 +50,9 @@
       border-radius: 10px;
       font-size: 14px;
       background: #fff;
-      margin-bottom: 16px;
+    }
+    .search-box.full {
+      margin-bottom: 10px;
     }
     .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
     @media (min-width: 768px) {
@@ -111,14 +124,22 @@
 
     <input
       type="text"
-      class="search-box"
+      class="search-box full"
       id="searchInput"
       placeholder="搜尋品牌或關鍵字（如 VERSACE, LOUIS VUITTON, 手提包...）"
     />
 
-    <select class="search-box" id="brandSelect">
-      <option value="">全部品牌</option>
-    </select>
+    <div class="controls-row">
+      <select class="search-box" id="brandSelect">
+        <option value="">全部品牌</option>
+      </select>
+
+      <select class="search-box" id="priceSortSelect">
+        <option value="default">金額排序：預設順序</option>
+        <option value="price_asc">金額排序：由低到高</option>
+        <option value="price_desc">金額排序：由高到低</option>
+      </select>
+    </div>
 
     <div class="grid" id="grid"></div>
   </div>
@@ -127,9 +148,9 @@
     let allItems = [];
     let currentFilter = "all";
     let currentBrand = "";
+    let currentPriceSort = "default";
     let updatedAt = "";
 
-    // 避免商品名稱 / 網址含特殊字元破壞版面
     function esc(s) {
       return String(s ?? "")
         .replace(/&/g, "&amp;")
@@ -146,7 +167,6 @@
       return "#";
     }
 
-    // 名稱格式：【店名】品牌/品類//型號
     function brandFromTitle(title) {
       const head = String(title || "").split("//")[0];
       const parts = head.split("/").map((p) => p.trim()).filter(Boolean);
@@ -160,7 +180,6 @@
       const url = raw.url || raw.link || "#";
       const image = raw.image || raw.img || raw.thumb || "";
       const isDrop = Boolean(raw.is_price_drop ?? raw.isPriceDrop ?? raw.price_drop ?? false);
-      // 已降價的不再重複標示新上架
       const isNew = Boolean(raw.is_new ?? raw.isNew ?? false) && !isDrop;
       const price = Number(raw.price) || null;
       const orig = Number(raw.orig_price) || null;
@@ -170,13 +189,31 @@
 
     function getFilteredItems() {
       const q = (document.getElementById("searchInput").value || "").trim().toLowerCase();
-      return allItems.filter((item) => {
+      const list = allItems.filter((item) => {
         if (currentFilter === "new" && !item.isNew) return false;
         if (currentFilter === "drop" && !item.isDrop) return false;
         if (currentBrand && item.brand !== currentBrand) return false;
         if (q && !item.title.toLowerCase().includes(q)) return false;
         return true;
       });
+
+      if (currentPriceSort === "price_asc") {
+        return [...list].sort((a, b) => {
+          const pa = a.price ?? Number.POSITIVE_INFINITY;
+          const pb = b.price ?? Number.POSITIVE_INFINITY;
+          return pa - pb;
+        });
+      }
+
+      if (currentPriceSort === "price_desc") {
+        return [...list].sort((a, b) => {
+          const pa = a.price ?? Number.NEGATIVE_INFINITY;
+          const pb = b.price ?? Number.NEGATIVE_INFINITY;
+          return pb - pa;
+        });
+      }
+
+      return list;
     }
 
     function updateCounts() {
@@ -205,9 +242,10 @@
         counts[it.brand] = (counts[it.brand] || 0) + 1;
       });
       const total = Object.values(counts).reduce((a, b) => a + b, 0);
-      const brands = Object.keys(counts).sort(
-        (a, b) => counts[b] - counts[a] || a.localeCompare(b)
-      );
+
+      // 依照英文字母 A -> Z 排序
+      const brands = Object.keys(counts).sort((a, b) => a.localeCompare(b, "en", { sensitivity: "base" }));
+
       if (currentBrand && !counts[currentBrand]) currentBrand = "";
       sel.innerHTML =
         `<option value="">全部品牌 (${total})</option>` +
@@ -277,6 +315,10 @@
       currentBrand = e.target.value;
       render();
     });
+    document.getElementById("priceSortSelect").addEventListener("change", (e) => {
+      currentPriceSort = e.target.value;
+      render();
+    });
 
     async function loadData() {
       try {
@@ -298,6 +340,4 @@
     }
 
     loadData();
-  </script>
-</body>
-</html>
+  </script
