@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T15:01:00+00:00",
+ "updated": "2026-11-27T15:15:46+00:00",
  "items": [
   {
    "sold": false,
@@ -8319,6 +8319,318 @@
    "brand": "BOTTEGA VENETA",
    "title": "【誠品生活台中480店】BOTTEGA VENETA/側背包//A0091589413",
    "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11882982/0/639311748124000000?v=1",
+   "is_price_drop": true
+  },
+  {
+   "sold": false,
+   "id": "11882104",
+   "name": "【美麗華店】Salvatore Ferragamo/公事包//FB247204",
+   "price": 6800,
+   "orig_price": null,
+   "url": "https://store.2ndstreet.com.tw/SalePage/Index/11882104",
+   "img": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11882104/0/639281475547530000?v=1",
+   "category": "sale",
+   "tags": [
+    "sale"
+   ],
+   "first_seen": "2026-11-27T15:15:46+00:00",
+   "is_new": false,
+   "price_history": [
+    {
+     "t": "2026-11-27T15:15:46+00:00",
+     "p": 6800
+    }
+   ],
+   "price_dropped": true,
+   "brand": "SALVATORE FERRAGAMO",
+   "title": "【美麗華店】Salvatore Ferragamo/公事包//FB247204",
+   "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11882104/0/639281475547530000?v=1",
+   "is_price_drop": true
+  },
+  {
+   "sold": false,
+   "id": "11882036",
+   "name": "【忠孝敦南店】PRADA/手提包//",
+   "price": 8000,
+   "orig_price": null,
+   "url": "https://store.2ndstreet.com.tw/SalePage/Index/11882036",
+   "img": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11882036/0/639281474648070000?v=1",
+   "category": "sale",
+   "tags": [
+    "sale"
+   ],
+   "first_seen": "2026-11-27T15:15:46+00:00",
+   "is_new": false,
+   "price_history": [
+    {
+     "t": "2026-11-27T15:15:46+00:00",
+     "p": 8000
+    }
+   ],
+   "price_dropped": true,
+   "brand": "PRADA",
+   "title": "【忠孝敦南店】PRADA/手提包//",
+   "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11882036/0/639281474648070000?v=1",
+   "is_price_drop": true
+  },
+  {
+   "sold": false,
+   "id": "11882006",
+   "name": "【高雄大遠百店】CHANEL/手提包//6950795",
+   "price": 24800,
+   "orig_price": null,
+   "url": "https://store.2ndstreet.com.tw/SalePage/Index/11882006",
+   "img": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11882006/0/639281476049100000?v=1",
+   "category": "sale",
+   "tags": [
+    "sale"
+   ],
+   "first_seen": "2026-11-27T15:15:46+00:00",
+   "is_new": false,
+   "price_history": [
+    {
+     "t": "2026-11-27T15:15:46+00:00",
+     "p": 24800
+    }
+   ],
+   "price_dropped": true,
+   "brand": "CHANEL",
+   "title": "【高雄大遠百店】CHANEL/手提包//6950795",
+   "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11882006/0/639281476049100000?v=1",
+   "is_price_drop": true
+  },
+  {
+   "sold": false,
+   "id": "11882004",
+   "name": "【台南中正店】FENDI/側背包//8BM310-SFR-199-12085",
+   "price": 25200,
+   "orig_price": null,
+   "url": "https://store.2ndstreet.com.tw/SalePage/Index/11882004",
+   "img": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11882004/0/639313423693530000?v=1",
+   "category": "sale",
+   "tags": [
+    "sale"
+   ],
+   "first_seen": "2026-11-27T15:15:46+00:00",
+   "is_new": false,
+   "price_history": [
+    {
+     "t": "2026-11-27T15:15:46+00:00",
+     "p": 25200
+    }
+   ],
+   "price_dropped": true,
+   "brand": "FENDI",
+   "title": "【台南中正店】FENDI/側背包//8BM310-SFR-199-12085",
+   "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11882004/0/639313423693530000?v=1",
+   "is_price_drop": true
+  },
+  {
+   "sold": false,
+   "id": "11881796",
+   "name": "【台北西門漢中店】FENDI/側背包//7VA537",
+   "price": 12000,
+   "orig_price": null,
+   "url": "https://store.2ndstreet.com.tw/SalePage/Index/11881796",
+   "img": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11881796/0/639281473419430000?v=1",
+   "category": "sale",
+   "tags": [
+    "sale"
+   ],
+   "first_seen": "2026-11-27T15:15:46+00:00",
+   "is_new": false,
+   "price_history": [
+    {
+     "t": "2026-11-27T15:15:46+00:00",
+     "p": 12000
+    }
+   ],
+   "price_dropped": true,
+   "brand": "FENDI",
+   "title": "【台北西門漢中店】FENDI/側背包//7VA537",
+   "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11881796/0/639281473419430000?v=1",
+   "is_price_drop": true
+  },
+  {
+   "sold": false,
+   "id": "11881784",
+   "name": "【高雄大立店】Salvatore Ferragamo/側背包//FB-24 5019",
+   "price": 7200,
+   "orig_price": null,
+   "url": "https://store.2ndstreet.com.tw/SalePage/Index/11881784",
+   "img": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11881784/0/639298086668300000?v=1",
+   "category": "sale",
+   "tags": [
+    "sale"
+   ],
+   "first_seen": "2026-11-27T15:15:46+00:00",
+   "is_new": false,
+   "price_history": [
+    {
+     "t": "2026-11-27T15:15:46+00:00",
+     "p": 7200
+    }
+   ],
+   "price_dropped": true,
+   "brand": "SALVATORE FERRAGAMO",
+   "title": "【高雄大立店】Salvatore Ferragamo/側背包//FB-24 5019",
+   "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11881784/0/639298086668300000?v=1",
+   "is_price_drop": true
+  },
+  {
+   "sold": false,
+   "id": "11877443",
+   "name": "【南港店】Chloe/側背包//04135765-9",
+   "price": 5500,
+   "orig_price": null,
+   "url": "https://store.2ndstreet.com.tw/SalePage/Index/11877443",
+   "img": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11877443/0/639298183494070000?v=1",
+   "category": "sale",
+   "tags": [
+    "sale"
+   ],
+   "first_seen": "2026-11-27T15:15:46+00:00",
+   "is_new": false,
+   "price_history": [
+    {
+     "t": "2026-11-27T15:15:46+00:00",
+     "p": 5500
+    }
+   ],
+   "price_dropped": true,
+   "brand": "CHLOE",
+   "title": "【南港店】Chloe/側背包//04135765-9",
+   "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11877443/0/639298183494070000?v=1",
+   "is_price_drop": true
+  },
+  {
+   "sold": false,
+   "id": "11877435",
+   "name": "【南港店】GUCCI/側背包//443497 520981",
+   "price": 30000,
+   "orig_price": null,
+   "url": "https://store.2ndstreet.com.tw/SalePage/Index/11877435",
+   "img": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11877435/0/639298183518900000?v=1",
+   "category": "sale",
+   "tags": [
+    "sale"
+   ],
+   "first_seen": "2026-11-27T15:15:46+00:00",
+   "is_new": false,
+   "price_history": [
+    {
+     "t": "2026-11-27T15:15:46+00:00",
+     "p": 30000
+    }
+   ],
+   "price_dropped": true,
+   "brand": "GUCCI",
+   "title": "【南港店】GUCCI/側背包//443497 520981",
+   "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11877435/0/639298183518900000?v=1",
+   "is_price_drop": true
+  },
+  {
+   "sold": false,
+   "id": "11876966",
+   "name": "【誠品生活板橋店】GUCCI/腰包//b035739143",
+   "price": 14500,
+   "orig_price": null,
+   "url": "https://store.2ndstreet.com.tw/SalePage/Index/11876966",
+   "img": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11876966/0/639294477395930000?v=1",
+   "category": "sale",
+   "tags": [
+    "sale"
+   ],
+   "first_seen": "2026-11-27T15:15:46+00:00",
+   "is_new": false,
+   "price_history": [
+    {
+     "t": "2026-11-27T15:15:46+00:00",
+     "p": 14500
+    }
+   ],
+   "price_dropped": true,
+   "brand": "GUCCI",
+   "title": "【誠品生活板橋店】GUCCI/腰包//b035739143",
+   "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11876966/0/639294477395930000?v=1",
+   "is_price_drop": true
+  },
+  {
+   "sold": false,
+   "id": "11876816",
+   "name": "【美麗華店】PRADA/包//7/G",
+   "price": 10000,
+   "orig_price": null,
+   "url": "https://store.2ndstreet.com.tw/SalePage/Index/11876816",
+   "img": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11876816/0/639298184346000000?v=1",
+   "category": "sale",
+   "tags": [
+    "sale"
+   ],
+   "first_seen": "2026-11-27T15:15:46+00:00",
+   "is_new": false,
+   "price_history": [
+    {
+     "t": "2026-11-27T15:15:46+00:00",
+     "p": 10000
+    }
+   ],
+   "price_dropped": true,
+   "brand": "PRADA",
+   "title": "【美麗華店】PRADA/包//7/G",
+   "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11876816/0/639298184346000000?v=1",
+   "is_price_drop": true
+  },
+  {
+   "sold": false,
+   "id": "11876367",
+   "name": "【基隆店】LOUIS VUITTON/手提包//m40145",
+   "price": 16000,
+   "orig_price": null,
+   "url": "https://store.2ndstreet.com.tw/SalePage/Index/11876367",
+   "img": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11876367/0/639281473871270000?v=1",
+   "category": "sale",
+   "tags": [
+    "sale"
+   ],
+   "first_seen": "2026-11-27T15:15:46+00:00",
+   "is_new": false,
+   "price_history": [
+    {
+     "t": "2026-11-27T15:15:46+00:00",
+     "p": 16000
+    }
+   ],
+   "price_dropped": true,
+   "brand": "LOUIS VUITTON",
+   "title": "【基隆店】LOUIS VUITTON/手提包//m40145",
+   "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11876367/0/639281473871270000?v=1",
+   "is_price_drop": true
+  },
+  {
+   "sold": false,
+   "id": "11876336",
+   "name": "【基隆店】LOUIS VUITTON/手提包//",
+   "price": 20000,
+   "orig_price": null,
+   "url": "https://store.2ndstreet.com.tw/SalePage/Index/11876336",
+   "img": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11876336/0/639281473869800000?v=1",
+   "category": "sale",
+   "tags": [
+    "sale"
+   ],
+   "first_seen": "2026-11-27T15:15:46+00:00",
+   "is_new": false,
+   "price_history": [
+    {
+     "t": "2026-11-27T15:15:46+00:00",
+     "p": 20000
+    }
+   ],
+   "price_dropped": true,
+   "brand": "LOUIS VUITTON",
+   "title": "【基隆店】LOUIS VUITTON/手提包//",
+   "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11876336/0/639281473869800000?v=1",
    "is_price_drop": true
   }
  ]
