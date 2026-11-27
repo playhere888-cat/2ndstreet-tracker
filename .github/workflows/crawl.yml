@@ -2,7 +2,7 @@ name: Crawl 2nd STREET Bags
 
 on:
   schedule:
-    - cron: "0 */6 * * *"
+    - cron: "*/30 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -29,6 +29,9 @@ jobs:
           playwright install chromium --with-deps
 
       - name: Run crawler
+        env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
         run: python crawler.py
 
       - name: Commit results
