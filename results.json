@@ -1,861 +1,256 @@
 {
-  "updated_at": "2026-11-27T08:21:15.721996+00:00",
-  "total_items": 171,
+  "updated_at": "2026-11-27T08:27:18.393628+00:00",
+  "total_items": 50,
   "items": [
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "訂單查詢",
-      "url": "https://store.2ndstreet.com.tw//store.2ndstreet.com.tw/V2/TradesOrder/TradesOrderList?shopId=41320"
+      "title": "【新莊宏匯廣場店】VERSACE/側背包//紫色人頭LOGO包包 US$450.66",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12064388",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12064388/0/639284805576800000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "會員專區",
-      "url": "https://store.2ndstreet.com.tw//store.2ndstreet.com.tw/V2/VipMember/VIPMemberRelay?shopId=41320"
+      "title": "【忠孝敦南店】AKRIS/手提包// US$84.12",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11813792",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11813792/0/639281478255030000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "我的收藏",
-      "url": "https://store.2ndstreet.com.tw//store.2ndstreet.com.tw/TraceSalePageList/TraceSalePageList"
+      "title": "【美麗華店】//手提包// US$150.22",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12223234",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12223234/0/639275662639670000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "我的優惠券",
-      "url": "https://store.2ndstreet.com.tw//store.2ndstreet.com.tw/v2/ECoupon/MyECoupon"
+      "title": "已售完 【忠孝敦南店】//托特包// US$135.20 US$108.16",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11371487",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/99096/ratioOneToOne/639274105418785690?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "★新品上市",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/442464?sortMode=Newest"
+      "title": "【美麗華店】LOEWE/手提包// US$240.35",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12306764",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12306764/0/639304166427230000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "★全部商品",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/442462?sortMode=Newest"
+      "title": "【南港店】BVLGARI/手提包// US$180.26 US$144.21",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/10743415",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/98852/ratioOneToOne/639269758451606400?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "▎皮夾．錢包",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/556700"
+      "title": "【公館店】LOUIS VUITTON/手提包// US$600.88",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12095106",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12095106/0/639295173419630000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "★海外專區🛫香港澳門首開通",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/485348"
+      "title": "【南港店】TORY BURCH/手拿包//10005626 US$120.18 US$90.13",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11736651",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/96217/ratioOneToOne/639241187024036140?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "★降價專區⬇Max 50% off",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/442514?sortMode=Newest"
+      "title": "【忠孝敦南店】//手拿包// US$210.31 US$168.25",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11450566",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/99096/ratioOneToOne/639274105418785690?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【TOP１】經典精品包👜熱門品牌嚴選",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/503629?sortMode=Newest"
+      "title": "【汐止遠雄店】FURLA/托特包// US$105.15 US$84.12",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11776761",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/99820/ratioOneToOne/639281779443697870?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【TOP２】萬元有找 🙌 入門精品包",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/437346?sortMode=Newest"
+      "title": "【汐止遠雄店】FENDI/托特包// US$180.26 US$144.21",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11787565",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/99820/ratioOneToOne/639281779443697870?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【TOP３】品牌嚴選💯精品衣．機能服",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/504560?sortMode=Newest"
+      "title": "【美麗華店】LOUIS VUITTON/手提包// US$600.88",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12085766",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12085766/0/639291717379270000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "聖誕派對🎄交換禮物特輯",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/606517"
+      "title": "【樹林秀泰店】COACH/手拿包// US$45.07 US$36.05",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11872165",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/99473/ratioOneToOne/639277469881451090?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "冬季挖寶｜精選時尚單品",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/592199"
+      "title": "Louis Vuitton/M58726/藍色/CAPUCINES BB SCRUNCHIE/兩用/肩背包/手提包 US$2,989.38 US$2,388.50",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11786838",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11786838/0/639281483904430000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "內行挖寶｜設計師品牌",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/552066?sortMode=Newest"
+      "title": "已售完 【公館店】LONGCHAMP/手提包//2605089410 US$30.04",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12168359",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12168359/0/639281452053970000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "年度熱門｜品牌精選推薦",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/578831"
+      "title": "【汐止遠雄店】PRADA/手拿包//65809393 US$225.33",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12060227",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12060227/0/639283941488130000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "嚴選戶外品牌｜單品推薦",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/443870"
+      "title": "【汐止遠雄店】HERMES/手拿包// US$624.92 US$561.82",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12020595",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/99739/ratioOneToOne/639281082972817920?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "買手推薦｜入門輕奢包款",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/564955"
+      "title": "【忠孝敦南店】GOYARD/托特包// US$2,523.70",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12136380",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12136380/0/639307269471230000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "熱門街頭潮流｜品牌嚴選",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/546535?sortMode=Newest"
+      "title": "【公館店】COACH/手拿包//F59529 US$45.07",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11480787",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11480787/0/639281492584200000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "運動單品｜熱門精選",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/548137"
+      "title": "【美麗華店】GUCCI/手提包//336751525040 US$240.35",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12223237",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12223237/0/639275662632670000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "人氣日系女裝｜品牌嚴選",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/546533?sortMode=Newest"
+      "title": "【汐止遠雄店】Chloe/手提包// US$360.53 US$288.42",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11722261",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/99820/ratioOneToOne/639281779443697870?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "都會商務｜品味選物",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/591378"
+      "title": "【徐匯廣場店】MONTBLANC/手拿包//1974222 US$150.22",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12318027",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/103111/ratioOneToOne/639305993620951640?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "尺寸指南",
-      "url": "https://store.2ndstreet.com.tw/v2/activity/34363"
+      "title": "【忠孝敦南店】GUCCI/手拿包//308362493075 US$285.42",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11999536",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11999536/0/639281466486530000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "付款方式",
-      "url": "https://2ndstreet.91app.com/Shop/Introduce/41320?t=2"
+      "title": "已售完 【徐匯廣場店】LONGCHAMP/手拿包//2541876018 US$66.10",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12317843",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/103111/ratioOneToOne/639305993620951640?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "🟧下單前務必閱讀",
-      "url": "https://store.2ndstreet.com.tw/Shop/Introduce/41320?t=2"
+      "title": "【汐止遠雄店】PRADA/托特包//110 US$180.26",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11919341",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11919341/0/639281475074670000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "店舖收購",
-      "url": "https://2ndstreet.com.tw/service/sell.html"
+      "title": "【汐止遠雄店】PRADA/手拿包// US$60.09 US$45.07",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11678488",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/88876/ratioOneToOne/639168522769045480?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "宅配收購",
-      "url": "https://store.2ndstreet.com.tw/V2/Activity/28423?layout=official"
+      "title": "【忠孝敦南店】JACQUES/手提包// US$150.22 US$120.18",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11711815",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/99096/ratioOneToOne/639274105418785690?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【新莊宏匯廣場店】VERSACE/側背包//紫色人頭LOGO包包 US$455.00",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12064388"
+      "title": "【微風南山店】HERMES/手提包// US$600.88 US$480.70",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11786347",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/103110/ratioOneToOne/639305993170670680?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【忠孝敦南店】AKRIS/手提包// US$84.93",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11813792"
+      "title": "【汐止遠雄店】SOMES SADDLE/手拿包// US$45.07 US$36.05",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11859623",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/99820/ratioOneToOne/639281779443697870?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【美麗華店】//手提包// US$151.67",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12223234"
+      "title": "【忠孝敦南店】MICHAEL KORS/托特包// US$36.05 US$27.04",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11427959",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11427959/0/639281494365970000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "已售完 【忠孝敦南店】//托特包// US$136.50 US$109.20",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11371487"
+      "title": "【逢甲福星店】COCCINELLE/手提包// US$30.04",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12285347",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12285347/0/639299014896100000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【公館店】LOUIS VUITTON/手提包// US$606.66",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12095106"
+      "title": "【微風南京店】HERMES/手提包// US$1,502.20",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12314789",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/102984/ratioOneToOne/639305196285259720?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【忠孝敦南店】//手拿包// US$212.33 US$169.86",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11450566"
+      "title": "【忠孝敦南店】TOD’S/托特包//YELLOW TIMELESS 托特包 US$660.97",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12126369",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12126369/0/639302949649870000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【美麗華店】LOEWE/手提包// US$242.66",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12306764"
+      "title": "【台南仁德店】TOD’S/托特包// US$114.17 US$90.13",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11769103",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/100247/ratioOneToOne/639288668745148280?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【南港店】BVLGARI/手提包// US$182.00 US$145.60",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/10743415"
+      "title": "【南港店】RABEANCO/手提包//M13 US$30.04",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12154218",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12154218/0/639313317511530000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【汐止遠雄店】FENDI/托特包// US$182.00 US$145.60",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11787565"
+      "title": "【忠孝敦南店】LOVE MOSCHINO/手提包// US$120.18",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11999611",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11999611/0/639281466495730000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【南港店】TORY BURCH/手拿包//10005626 US$121.33 US$91.00",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11736651"
+      "title": "【汐止遠雄店】LOEWE/手提包//652218 US$672.99 US$603.88",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11232872",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/99739/ratioOneToOne/639281082972817920?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【樹林秀泰店】COACH/手拿包// US$45.50 US$36.40",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11872165"
+      "title": "【逢甲福星店】ROBINMAY/手提包// US$45.07",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12285363",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12285363/0/639299014877430000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "Louis Vuitton/M58726/藍色/CAPUCINES BB SCRUNCHIE/兩用/肩背包/手提包 US$3,018.13 US$2,411.47",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11786838"
+      "title": "【逢甲福星店】Carlyn/手提包// US$30.04",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12285346",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12285346/0/639299014898270000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "已售完 【公館店】LONGCHAMP/手提包//2605089410 US$30.33",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12168359"
+      "title": "【台南仁德店】FENDI/手提包// US$300.44 US$270.40",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11512967",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/100364/ratioOneToOne/639288668906640160?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【汐止遠雄店】FURLA/托特包// US$106.17 US$84.93",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11776761"
+      "title": "【汐止遠雄店】MIU MIU/手提包// US$240.35 US$192.28",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11624454",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/96383/ratioOneToOne/639244727315991930?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【汐止遠雄店】PRADA/手拿包//65809393 US$227.50",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12060227"
+      "title": "【汐止遠雄店】COACH/手提包//42965 US$30.04",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11876008",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11876008/0/639281475028030000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【汐止遠雄店】HERMES/手拿包// US$630.93 US$567.23",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12020595"
+      "title": "【樹林秀泰店】COACH/手拿包//f54057 US$60.09 US$45.07",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11778949",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/89154/ratioOneToOne/639171982991250420?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【美麗華店】LOUIS VUITTON/手提包// US$606.66",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12085766"
+      "title": "【忠孝敦南店】BALLY/手提包//1424.99 US$105.15",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11371489",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/11371489/0/639281494278230000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【忠孝敦南店】GOYARD/托特包// US$2,547.97",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12136380"
+      "title": "【桃園經國店】FENDI/手拿包// US$216.32 US$171.25",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11328413",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/86486/ratioOneToOne/639144331977027800?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【公館店】COACH/手拿包//F59529 US$45.50",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11480787"
+      "title": "【微風南山店】CHANEL/手提包// US$2,595.80 US$2,403.52",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/10845576",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/87841/ratioOneToOne/639159889132001140?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【美麗華店】GUCCI/手提包//336751525040 US$242.66",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12223237"
+      "title": "【環球新北中和店】BURBERRY/手提包// US$165.24",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12117522",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/SalePage/12117522/0/639301222475870000?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【汐止遠雄店】Chloe/手提包// US$364.00 US$291.20",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11722261"
+      "title": "【逢甲福星店】COACH/手提包// US$54.08",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12321020",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/103297/ratioOneToOne/639306831717455010?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【徐匯廣場店】MONTBLANC/手拿包//1974222 US$151.67",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12318027"
+      "title": "【汐止遠雄店】CELINE/手拿包//193953DGQ US$660.97",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12329214",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/103506/ratioOneToOne/639310289957436070?v=1"
     },
     {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "已售完 【徐匯廣場店】LONGCHAMP/手拿包//2541876018 US$66.73",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12317843"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【忠孝敦南店】JACQUES/手提包// US$151.67 US$121.33",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11711815"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【汐止遠雄店】PRADA/手拿包// US$60.67 US$45.50",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11678488"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【忠孝敦南店】GUCCI/手拿包//308362493075 US$288.16",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11999536"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【逢甲福星店】COCCINELLE/手提包// US$30.33",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12285347"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【微風南京店】HERMES/手提包// US$1,516.65",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12314789"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【忠孝敦南店】TOD’S/托特包//YELLOW TIMELESS 托特包 US$667.33",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12126369"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【汐止遠雄店】PRADA/托特包//110 US$182.00",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11919341"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【忠孝敦南店】LOVE MOSCHINO/手提包// US$121.33",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11999611"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【汐止遠雄店】LOEWE/手提包//652218 US$679.46 US$609.69",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11232872"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【逢甲福星店】ROBINMAY/手提包// US$45.50",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12285363"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【逢甲福星店】Carlyn/手提包// US$30.33",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12285346"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【台南仁德店】FENDI/手提包// US$303.33 US$273.00",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11512967"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【汐止遠雄店】MIU MIU/手提包// US$242.66 US$194.13",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11624454"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【微風南山店】HERMES/手提包// US$606.66 US$485.33",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11786347"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【汐止遠雄店】SOMES SADDLE/手拿包// US$45.50 US$36.40",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11859623"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【忠孝敦南店】MICHAEL KORS/托特包// US$36.40 US$27.30",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11427959"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【台南仁德店】TOD’S/托特包// US$115.27 US$91.00",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11769103"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【南港店】RABEANCO/手提包//M13 US$30.33",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12154218"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【桃園經國店】FENDI/手拿包// US$218.40 US$172.90",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11328413"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【微風南山店】CHANEL/手提包// US$2,620.77 US$2,426.64",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/10845576"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【汐止遠雄店】COACH/手提包//42965 US$30.33",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11876008"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【環球新北中和店】BURBERRY/手提包// US$166.83",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12117522"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【樹林秀泰店】COACH/手拿包//f54057 US$60.67 US$45.50",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11778949"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【逢甲福星店】COACH/手提包// US$54.60",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12321020"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【忠孝敦南店】BALLY/手提包//1424.99 US$106.17",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11371489"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【汐止遠雄店】CELINE/手拿包//193953DGQ US$667.33",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/12329214"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "【汐止遠雄店】AIGNER/手提包///2340500672351 US$54.60 US$42.47",
-      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11659817"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "NIKE",
-      "url": "https://store.2ndstreet.com.tw/v2/Search?q=NIKE&shopId=41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "HERMES",
-      "url": "https://store.2ndstreet.com.tw/v2/Search?q=HERMES&shopId=41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "SUPREME",
-      "url": "https://store.2ndstreet.com.tw/v2/Search?q=SUPREME&shopId=41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "LOEWE",
-      "url": "https://store.2ndstreet.com.tw/v2/Search?q=LOEWE&shopId=41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "DIOR",
-      "url": "https://store.2ndstreet.com.tw/v2/Search?q=DIOR&shopId=41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "PORTER",
-      "url": "https://store.2ndstreet.com.tw/v2/Search?q=PORTER&shopId=41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "ISSEY MIYAKE",
-      "url": "https://store.2ndstreet.com.tw/v2/Search?q=ISSEY%20MIYAKE&shopId=41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "BALENCIAGA",
-      "url": "https://store.2ndstreet.com.tw/v2/Search?q=BALENCIAGA&shopId=41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "CHANEL",
-      "url": "https://store.2ndstreet.com.tw/v2/Search?q=CHANEL&shopId=41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "LOUIS VUITTON",
-      "url": "https://store.2ndstreet.com.tw/v2/Search?q=LOUIS%20VUITTON&shopId=41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "GUCCI",
-      "url": "https://store.2ndstreet.com.tw/v2/Search?q=GUCCI&shopId=41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "\"LOUIS VUITTON\"",
-      "url": "https://store.2ndstreet.com.tw/v2/Search?q=%22LOUIS%20VUITTON%22&shopId=41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "\"COACH\"",
-      "url": "https://store.2ndstreet.com.tw/v2/Search?q=%22COACH%22&shopId=41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "\"PRADA\"",
-      "url": "https://store.2ndstreet.com.tw/v2/Search?q=%22PRADA%22&shopId=41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "\"BALENCIAGA\"",
-      "url": "https://store.2ndstreet.com.tw/v2/Search?q=%22BALENCIAGA%22&shopId=41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "CELINE",
-      "url": "https://store.2ndstreet.com.tw/v2/Search?q=CELINE&shopId=41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "品牌故事",
-      "url": "https://store.2ndstreet.com.tw/v2/Official/BrandStory"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "商店簡介",
-      "url": "https://store.2ndstreet.com.tw/shop/introduce/41320?t=1"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "門市資訊",
-      "url": "https://store.2ndstreet.com.tw/v2/Shop/StoreList/41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "隱私權及網站使用條款",
-      "url": "https://store.2ndstreet.com.tw/MyAccount/Privacy/41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "購物說明",
-      "url": "https://store.2ndstreet.com.tw/Shop/Introduce/41320?t=2"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "客服留言",
-      "url": "https://store.2ndstreet.com.tw/Question/QuestionInsert/0?sId=41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "會員權益聲明",
-      "url": "https://store.2ndstreet.com.tw/V2/MyAccount/VipMemberBenefits"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "聯絡我們",
-      "url": "https://store.2ndstreet.com.tw/Shop/Introduce/41320?t=3"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "隱私權及網站使用條款",
-      "url": "https://store.2ndstreet.com.tw//store.2ndstreet.com.tw/MyAccount/Privacy?shopId=41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "了解更多 >",
-      "url": "https://store.2ndstreet.com.tw#"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "女用 側背包",
-      "url": "https://store.2ndstreet.com.tw/tagCategory/%E5%A5%B3%E7%94%A8,%E5%81%B4%E8%83%8C%E5%8C%85"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "5折起 換季出清",
-      "url": "https://store.2ndstreet.com.tw/tagCategory/5%E6%8A%98%E8%B5%B7,%E6%8F%9B%E5%AD%A3%E5%87%BA%E6%B8%85"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "女用 黑色",
-      "url": "https://store.2ndstreet.com.tw/tagCategory/%E5%A5%B3%E7%94%A8,%E9%BB%91%E8%89%B2"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "黑色 側背包",
-      "url": "https://store.2ndstreet.com.tw/tagCategory/%E9%BB%91%E8%89%B2,%E5%81%B4%E8%83%8C%E5%8C%85"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "CHANEL 女用",
-      "url": "https://store.2ndstreet.com.tw/tagCategory/CHANEL,%E5%A5%B3%E7%94%A8"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "GUCCI 側背包",
-      "url": "https://store.2ndstreet.com.tw/tagCategory/GUCCI,%E5%81%B4%E8%83%8C%E5%8C%85"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "女用 大地色系",
-      "url": "https://store.2ndstreet.com.tw/tagCategory/%E5%A5%B3%E7%94%A8,%E5%A4%A7%E5%9C%B0%E8%89%B2%E7%B3%BB"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "側背包 品牌花紋",
-      "url": "https://store.2ndstreet.com.tw/tagCategory/%E5%81%B4%E8%83%8C%E5%8C%85,%E5%93%81%E7%89%8C%E8%8A%B1%E7%B4%8B"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "側背包 大地色系",
-      "url": "https://store.2ndstreet.com.tw/tagCategory/%E5%81%B4%E8%83%8C%E5%8C%85,%E5%A4%A7%E5%9C%B0%E8%89%B2%E7%B3%BB"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/Search?q=%E5%8C%85%E5%8C%85&shopId=41320",
-      "title_or_text": "品牌花紋 女用",
-      "url": "https://store.2ndstreet.com.tw/tagCategory/%E5%93%81%E7%89%8C%E8%8A%B1%E7%B4%8B,%E5%A5%B3%E7%94%A8"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "訂單查詢",
-      "url": "https://store.2ndstreet.com.tw//store.2ndstreet.com.tw/V2/TradesOrder/TradesOrderList?shopId=41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "會員專區",
-      "url": "https://store.2ndstreet.com.tw//store.2ndstreet.com.tw/V2/VipMember/VIPMemberRelay?shopId=41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "我的收藏",
-      "url": "https://store.2ndstreet.com.tw//store.2ndstreet.com.tw/TraceSalePageList/TraceSalePageList"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "我的優惠券",
-      "url": "https://store.2ndstreet.com.tw//store.2ndstreet.com.tw/v2/ECoupon/MyECoupon"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "★新品上市",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/442464?sortMode=Newest"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "★全部商品",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/442462?sortMode=Newest"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "▎皮夾．錢包",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/556700"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "★海外專區🛫香港澳門首開通",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/485348"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "★降價專區⬇Max 50% off",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/442514?sortMode=Newest"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "【TOP１】經典精品包👜熱門品牌嚴選",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/503629?sortMode=Newest"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "【TOP２】萬元有找 🙌 入門精品包",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/437346?sortMode=Newest"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "【TOP３】品牌嚴選💯精品衣．機能服",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/504560?sortMode=Newest"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "聖誕派對🎄交換禮物特輯",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/606517"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "冬季挖寶｜精選時尚單品",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/592199"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "內行挖寶｜設計師品牌",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/552066?sortMode=Newest"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "年度熱門｜品牌精選推薦",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/578831"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "嚴選戶外品牌｜單品推薦",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/443870"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "買手推薦｜入門輕奢包款",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/564955"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "熱門街頭潮流｜品牌嚴選",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/546535?sortMode=Newest"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "運動單品｜熱門精選",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/548137"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "人氣日系女裝｜品牌嚴選",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/546533?sortMode=Newest"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "都會商務｜品味選物",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/591378"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "尺寸指南",
-      "url": "https://store.2ndstreet.com.tw/v2/activity/34363"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "付款方式",
-      "url": "https://2ndstreet.91app.com/Shop/Introduce/41320?t=2"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "🟧下單前務必閱讀",
-      "url": "https://store.2ndstreet.com.tw/Shop/Introduce/41320?t=2"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "店舖收購",
-      "url": "https://2ndstreet.com.tw/service/sell.html"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "宅配收購",
-      "url": "https://store.2ndstreet.com.tw/V2/Activity/28423?layout=official"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "人氣商品推薦",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/423997"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "【TOP１】經典精品包👜熱門品牌推薦",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/503629"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "【TOP２】萬元有找 🙌 入門精品包",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/437346"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "【TOP３】品牌嚴選💯精品衣．機能服",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/504560"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "聖誕派對🎄交換禮物特輯",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/606517"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "冬季挖寶｜精選時尚單品",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/592199"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "內行挖寶｜設計師品牌",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/552066"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "年度熱門｜人氣精選推薦",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/578831"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "嚴選戶外品牌｜單品推薦",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/443870"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "買手推薦｜入門輕奢包款",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/564955"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "熱門街頭潮流｜品牌嚴選",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/546535"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "運動單品｜熱門精選",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/548137"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "人氣日系女裝｜品牌嚴選",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/546533"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "都會商務｜品味選物",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/591378"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "高人氣專區｜專區Max50%OFF",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/559743"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "★店長推薦",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/442463"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "★新品上市",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/442464"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "★全部商品",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/442462"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "★降價專區⬇Max 50% off",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/442514"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "★海外專區🛫香港澳門首開通",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/485348"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "▎皮夾．錢包",
-      "url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/556700"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "品牌故事",
-      "url": "https://store.2ndstreet.com.tw/v2/Official/BrandStory"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "商店簡介",
-      "url": "https://store.2ndstreet.com.tw/shop/introduce/41320?t=1"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "門市資訊",
-      "url": "https://store.2ndstreet.com.tw/v2/Shop/StoreList/41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "隱私權及網站使用條款",
-      "url": "https://store.2ndstreet.com.tw/MyAccount/Privacy/41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "購物說明",
-      "url": "https://store.2ndstreet.com.tw/Shop/Introduce/41320?t=2"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "客服留言",
-      "url": "https://store.2ndstreet.com.tw/Question/QuestionInsert/0?sId=41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "會員權益聲明",
-      "url": "https://store.2ndstreet.com.tw/V2/MyAccount/VipMemberBenefits"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "聯絡我們",
-      "url": "https://store.2ndstreet.com.tw/Shop/Introduce/41320?t=3"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "隱私權及網站使用條款",
-      "url": "https://store.2ndstreet.com.tw//store.2ndstreet.com.tw/MyAccount/Privacy?shopId=41320"
-    },
-    {
-      "source_url": "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/467886",
-      "title_or_text": "了解更多 >",
-      "url": "https://store.2ndstreet.com.tw#"
+      "title": "【汐止遠雄店】AIGNER/手提包///2340500672351 US$54.08 US$42.06",
+      "url": "https://store.2ndstreet.com.tw/SalePage/Index/11659817",
+      "image": "https://img.91app.com/webapi/imagesV3/Cropped/ProductBadge/93245/ratioOneToOne/639214369079366090?v=1"
     }
   ]
 }
