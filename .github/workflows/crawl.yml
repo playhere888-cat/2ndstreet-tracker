@@ -39,24 +39,35 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add results.json
+          
+          # 如果沒有檔案異動則直接結束
           if git diff --staged --quiet; then
             echo "No changes to commit"
             exit 0
           fi
+          
           git commit -m "update results $(date -u +'%Y-%m-%d %H:%M')"
+          
+          # 自動重試與衝突處理解鎖
           for i in 1 2 3; do
             if git pull --rebase origin main; then
               if git push origin main; then
+                echo "Successfully pushed results."
                 exit 0
               fi
             else
+              echo "Rebase conflict detected, resetting to latest main..."
               git rebase --abort || true
               git fetch origin main
               git checkout -B main origin/main
-              python crawler.py
+              
+              # 重新執行爬蟲以產生基於最新 main 的 results.json
+              TG_BOT_TOKEN="${{ secrets.TG_BOT_TOKEN }}" TG_CHAT_ID="${{ secrets.TG_CHAT_ID }}" python crawler.py
+              
               git add results.json
               git commit -m "update results $(date -u +'%Y-%m-%d %H:%M')" || exit 0
             fi
             sleep 3
           done
+          
           git push origin main
