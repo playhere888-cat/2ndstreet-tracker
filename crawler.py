@@ -1,10 +1,10 @@
 """
-2nd STREET 台灣 包包 新上架 / 降價 爬蟲（新貨置頂 + 新掃入計數 + 即時推播附連結/圖片版）
-
-用法：
-  一般執行：python crawler.py
-  測試 TG：python crawler.py --test-tg
-  強制推播測試：python crawler.py --force-notify
+2nd STREET 台灣 包包 新上架 / 降價 爬蟲
+功能：
+  1. 僅抓取指定 18 個精品品牌與包款，排除錢包、鞋類等非包款
+  2. 新掃入商品排在清單最前方，更新時間後方附加新掃入數量
+  3. 取消原價欄位，每筆標示 [新上架] 或 [已降價]
+  4. 推播時直接附上商品圖片與賣場連結至 Telegram
 """
 import html
 import json
@@ -51,9 +51,8 @@ USD_TO_TWD = 32.5
 DATA_FILE = Path("results.json")
 NEW_DAYS = 3
 MIN_KEEP_RATIO = 0.05
-MAX_NOTIFY_ITEMS = 8
-NOTIFY_ON_FIRST_RUN = False       # 首次尚無歷史紀錄時是否推播
-SEND_PHOTO_PER_ITEM = False     # True：每件商品另外發一張附圖卡片；False：單則彙整推播＋連結預覽
+MAX_NOTIFY_ITEMS = 5
+NOTIFY_ON_FIRST_RUN = False  # 首次尚無歷史紀錄時是否推播；False 避免首次建檔整批洗版
 # ==================================================
 
 
@@ -96,6 +95,8 @@ def is_bag(name):
 
 
 def clean_url(url):
+    if not url:
+        return ""
     if url.count("https://") > 1:
         url = "https://" + url.split("https://")[-1]
     return url
@@ -340,7 +341,7 @@ def crawl(debug=False):
     return items
 
 
-def _post_tg_message(bot_token, chat_id, text, disable_preview=False):
+def _post_tg_message(bot_token, chat_id, text, disable_preview=True):
     api_url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
     data = urllib.parse.urlencode({
         "chat_id": chat_id,
@@ -357,16 +358,45 @@ def _post_tg_message(bot_token, chat_id, text, disable_preview=False):
         return parsed
 
 
-def _post_tg_photo(bot_token, chat_id, photo_url, caption):
+def _post_tg_photo_bytes(bot_token, chat_id, img_url, caption):
+    req_img = urllib.request.Request(
+        img_url,
+        headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/124.0 Safari/537.36"},
+    )
+    with urllib.request.urlopen(req_img, timeout=15) as r_img:
+        img_bytes = r_img.read()
+
+    boundary = "----TgPhotoBoundary7MA4YWxkTrZu0gW"
     api_url = f"https://api.telegram.org/bot{bot_token}/sendPhoto"
-    data = urllib.parse.urlencode({
-        "chat_id": chat_id,
-        "photo": photo_url,
-        "caption": caption[:1024],
-        "parse_mode": "HTML",
-    }).encode("utf-8")
-    req = urllib.request.Request(api_url, data=data, method="POST")
-    with urllib.request.urlopen(req, timeout=20) as resp:
+
+    parts = []
+    for k, v in (
+        ("chat_id", str(chat_id)),
+        ("caption", caption[:1024]),
+        ("parse_mode", "HTML"),
+    ):
+        parts.append(
+            f"--{boundary}\r\n"
+            f'Content-Disposition: form-data; name="{k}"\r\n\r\n'
+            f"{v}\r\n".encode("utf-8")
+        )
+
+    parts.append(
+        f"--{boundary}\r\n"
+        f'Content-Disposition: form-data; name="photo"; filename="bag.jpg"\r\n'
+        f"Content-Type: image/jpeg\r\n\r\n".encode("utf-8")
+        + img_bytes
+        + f"\r\n--{boundary}--\r\n".encode("utf-8")
+    )
+
+    body = b"".join(parts)
+    req = urllib.request.Request(
+        api_url,
+        data=body,
+        headers={"Content-Type": f"multipart/form-data; boundary={boundary}"},
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=25) as resp:
         raw_body = resp.read().decode("utf-8")
         parsed = json.loads(raw_body)
         if not parsed.get("ok"):
@@ -380,22 +410,6 @@ def _status_tag(item):
     return "新上架"
 
 
-def _format_item_line(item):
-    b = html.escape(str(item.get("brand") or brand_of(item.get("name", ""))))
-    n = html.escape(str(item.get("name") or item.get("title") or "未命名商品"))
-    u = html.escape(str(item.get("url") or BASE))
-    img = html.escape(str(item.get("image") or item.get("img") or ""))
-    p = int(item.get("price") or 0)
-    tag = html.escape(_status_tag(item))
-
-    line = f"• [{tag}] <b>{b}</b> - NT${p:,}\n  <a href='{u}'>{n}</a>"
-    if img:
-        line += f"\n  <a href='{img}'>查看商品圖</a> ｜ <a href='{u}'>前往賣場</a>"
-    else:
-        line += f"\n  <a href='{u}'>前往賣場</a>"
-    return line + "\n"
-
-
 def send_tg_notification(new_items, drop_items, new_count=0, updated_str="", test_mode=False):
     bot_token = os.environ.get("TG_BOT_TOKEN", "").strip()
     chat_id = os.environ.get("TG_CHAT_ID", "").strip()
@@ -403,70 +417,65 @@ def send_tg_notification(new_items, drop_items, new_count=0, updated_str="", tes
         print("[TG] 未設定 TG_BOT_TOKEN 或 TG_CHAT_ID，跳過發送。")
         return False
 
-    messages = []
     if test_mode:
-        messages.append(
-            "🧪 <b>【2nd STREET 機器人串接測試】</b>\n"
-            "• [新上架] <b>LOUIS VUITTON</b> - NT$18,000\n"
-            "  <a href='https://store.2ndstreet.com.tw'>測試商品名稱</a>\n"
-            "  <a href='https://store.2ndstreet.com.tw'>前往賣場</a>"
-        )
+        try:
+            _post_tg_message(
+                bot_token,
+                chat_id,
+                "🧪 <b>【2nd STREET 機器人串接測試】</b>\n"
+                "• [新上架] <b>LOUIS VUITTON</b> - NT$18,000\n"
+                "  <a href='https://store.2ndstreet.com.tw'>前往賣場</a>",
+                disable_preview=True,
+            )
+            print("[TG] 測試通知已送出。")
+            return True
+        except Exception as e:
+            print(f"[TG] 測試通知發送失敗: {e}")
+            traceback.print_exc()
+            return False
 
-    if new_items:
-        header = f"✨ <b>【2nd STREET 即時更新・新掃入 +{new_count}】</b>"
-        if updated_str:
-            header += f"\n🕒 {html.escape(updated_str)}"
-        msg = header + "\n"
-        for item in new_items[:MAX_NOTIFY_ITEMS]:
-            msg += _format_item_line(item)
-        messages.append(msg)
-
-    if drop_items:
-        header = "🔥 <b>【2nd STREET 包包降價通知】</b>"
-        if updated_str:
-            header += f"\n🕒 {html.escape(updated_str)}"
-        msg = header + "\n"
-        for item in drop_items[:MAX_NOTIFY_ITEMS]:
-            msg += _format_item_line(item)
-        messages.append(msg)
-
-    if not messages:
+    target_items = new_items[:MAX_NOTIFY_ITEMS] + drop_items[:MAX_NOTIFY_ITEMS]
+    if not target_items:
         print("[TG] 本次無新掃入或降價包款，無需推播。")
         return True
 
-    sent_ok = True
-    total_items = new_items[:MAX_NOTIFY_ITEMS] + drop_items[:MAX_NOTIFY_ITEMS]
-    single_item_mode = (len(total_items) == 1)
+    summary_header = "✨ <b>【2nd STREET 即時更新】</b>"
+    if updated_str:
+        summary_header += f"\n🕒 {html.escape(updated_str)}"
+    elif new_count:
+        summary_header += f"\n新掃入 +{new_count}"
 
-    for idx, text in enumerate(messages, start=1):
+    try:
+        _post_tg_message(bot_token, chat_id, summary_header, disable_preview=True)
+    except Exception as e:
+        print(f"[TG] 標題通知發送失敗: {e}")
+
+    sent_ok = True
+    for idx, item in enumerate(target_items, start=1):
+        b = html.escape(str(item.get("brand") or brand_of(item.get("name", ""))))
+        n = html.escape(str(item.get("name") or item.get("title") or "未命名商品"))
+        u = html.escape(str(item.get("url") or BASE))
+        img_url = str(item.get("image") or item.get("img") or "").strip()
+        p = int(item.get("price") or 0)
+        tag = html.escape(_status_tag(item))
+
+        caption = (
+            f"[{tag}] <b>{b}</b> - NT${p:,}\n"
+            f"{n}\n"
+            f"<a href='{u}'>前往賣場</a>"
+        )
+
         try:
-            _post_tg_message(bot_token, chat_id, text, disable_preview=not single_item_mode)
-            print(f"[TG] 第 {idx}/{len(messages)} 則通知已即時送出。")
+            if img_url:
+                _post_tg_photo_bytes(bot_token, chat_id, img_url, caption)
+            else:
+                _post_tg_message(bot_token, chat_id, caption, disable_preview=False)
+            print(f"[TG] 第 {idx}/{len(target_items)} 筆商品推播完成。")
+            time.sleep(0.5)
         except Exception as e:
             sent_ok = False
-            print(f"[TG] 第 {idx}/{len(messages)} 則通知發送失敗: {e}")
+            print(f"[TG] 第 {idx}/{len(target_items)} 筆商品推播失敗: {e}")
             traceback.print_exc()
-
-    if SEND_PHOTO_PER_ITEM and not test_mode:
-        for item in total_items[:5]:
-            img_url = item.get("image") or item.get("img") or ""
-            if not img_url:
-                continue
-            b = html.escape(str(item.get("brand") or brand_of(item.get("name", ""))))
-            n = html.escape(str(item.get("name") or item.get("title") or "未命名商品"))
-            u = html.escape(str(item.get("url") or BASE))
-            p = int(item.get("price") or 0)
-            tag = html.escape(_status_tag(item))
-            caption = (
-                f"[{tag}] <b>{b}</b> - NT${p:,}\n"
-                f"{n}\n"
-                f"<a href='{u}'>前往商品連結</a>"
-            )
-            try:
-                _post_tg_photo(bot_token, chat_id, img_url, caption)
-                time.sleep(0.5)
-            except Exception as e:
-                print(f"[TG] 附圖發送失敗（{b}）: {e}")
 
     return sent_ok
 
