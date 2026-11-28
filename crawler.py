@@ -4,7 +4,7 @@
   1. 僅抓取指定 18 個精品品牌與包款，排除錢包、鞋類等非包款
   2. 新掃入商品排在清單最前方，更新時間後方附加新掃入數量
   3. 取消原價欄位，每筆標示 [新上架] 或 [已降價]
-  4. 推播時直接附上商品圖片與賣場連結至 Telegram
+  4. 推播時直接附上商品圖片與賣場連結至 Telegram，標題附上網頁圖鑑連結
 """
 import html
 import json
@@ -23,6 +23,7 @@ from playwright.sync_api import sync_playwright
 
 # ==================== 1. 設定區 ====================
 BASE = "https://store.2ndstreet.com.tw"
+CATALOG_URL = "https://playhere888-cat.github.io/2ndstreet-tracker/"
 
 CATEGORY_URLS = {
     "new":  "https://store.2ndstreet.com.tw/v2/official/SalePageCategory/442464",
@@ -418,11 +419,14 @@ def send_tg_notification(new_items, drop_items, new_count=0, updated_str="", tes
         return False
 
     if test_mode:
+        test_header = "🧪 <b>【2nd STREET 機器人串接測試】</b>"
+        if CATALOG_URL:
+            test_header += f"\n🌐 <a href='{html.escape(CATALOG_URL.strip())}'>開啟網頁圖鑑</a>"
         try:
             _post_tg_message(
                 bot_token,
                 chat_id,
-                "🧪 <b>【2nd STREET 機器人串接測試】</b>\n"
+                f"{test_header}\n"
                 "• [新上架] <b>LOUIS VUITTON</b> - NT$18,000\n"
                 "  <a href='https://store.2ndstreet.com.tw'>前往賣場</a>",
                 disable_preview=True,
@@ -444,6 +448,9 @@ def send_tg_notification(new_items, drop_items, new_count=0, updated_str="", tes
         summary_header += f"\n🕒 {html.escape(updated_str)}"
     elif new_count:
         summary_header += f"\n新掃入 +{new_count}"
+    if CATALOG_URL:
+        cat_u = html.escape(CATALOG_URL.strip())
+        summary_header += f"\n🌐 <a href='{cat_u}'>開啟網頁圖鑑</a>"
 
     try:
         _post_tg_message(bot_token, chat_id, summary_header, disable_preview=True)
