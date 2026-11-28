@@ -1,8 +1,10 @@
 """
-2nd STREET 台灣 包包 新上架 / 降價 爬蟲（Telegram 串接與測試版）
+2nd STREET 台灣 包包 新上架 / 降價 爬蟲（新貨置頂 + 新掃入計數 + 即時推播版）
 
-執行一般爬蟲：python crawler.py
-測試 TG 推播：python crawler.py --test-tg
+用法：
+  一般執行：python crawler.py
+  測試 TG：python crawler.py --test-tg
+  強制推播測試：python crawler.py --force-notify
 """
 import html
 import json
@@ -10,6 +12,7 @@ import os
 import re
 import sys
 import time
+import traceback
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
@@ -48,6 +51,8 @@ USD_TO_TWD = 32.5
 DATA_FILE = Path("results.json")
 NEW_DAYS = 3
 MIN_KEEP_RATIO = 0.05
+MAX_NOTIFY_ITEMS = 8
+NOTIFY_ON_FIRST_RUN = False  # 首次尚無歷史紀錄時是否推播；False 避免首次建檔整批洗版
 # ==================================================
 
 
@@ -87,6 +92,12 @@ def is_bag(name):
     if any(w in cat for w in NOT_BAG_WORDS):
         return False
     return any(w in cat for w in BAG_WORDS)
+
+
+def clean_url(url):
+    if url.count("https://") > 1:
+        url = "https://" + url.split("https://")[-1]
+    return url
 
 
 def scroll_to_bottom(page):
@@ -261,12 +272,6 @@ def extract_items(page, category, api_price_map=None):
     return list(out.values())
 
 
-def clean_url(url):
-    if url.count("https://") > 1:
-        url = "https://" + url.split("https://")[-1]
-    return url
-
-
 def crawl(debug=False):
     items = {}
     with sync_playwright() as p:
@@ -312,7 +317,7 @@ def crawl(debug=False):
                     got = [i for i in got if not i["sold"]]
 
                 fresh = [i for i in got if i["id"] not in items or cat not in items[i["id"]]["tags"]]
-                print(f"[{cat}] page {pg}: 共 {total} 件，保留 {len(got)} 件")
+                print(f"[{cat}] page {pg}: 原始 {total} 件 -> 篩選後 {len(got)} 件")
                 if not got or not fresh:
                     break
 
@@ -329,90 +334,115 @@ def crawl(debug=False):
     return items
 
 
-def _post_tg(bot_token, chat_id, text):
-    url = f"https://api.telegram.org/bot{bot_token.strip()}/sendMessage"
-    payload = urllib.parse.urlencode({
-        "chat_id": str(chat_id).strip(),
+def _post_tg_message(bot_token, chat_id, text):
+    api_url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
+    data = urllib.parse.urlencode({
+        "chat_id": chat_id,
         "text": text,
         "parse_mode": "HTML",
         "disable_web_page_preview": "true",
     }).encode("utf-8")
-    req = urllib.request.Request(url, data=payload, method="POST")
+    req = urllib.request.Request(api_url, data=data, method="POST")
     with urllib.request.urlopen(req, timeout=15) as resp:
-        body = json.loads(resp.read().decode("utf-8"))
-        if not body.get("ok"):
-            raise RuntimeError(f"Telegram API 回傳失敗: {body}")
+        raw_body = resp.read().decode("utf-8")
+        parsed = json.loads(raw_body)
+        if not parsed.get("ok"):
+            raise RuntimeError(f"Telegram API 回傳失敗: {raw_body}")
+        return parsed
 
 
-def send_tg_notification(new_items, drop_items, test_mode=False):
+def _format_item_line(item, show_orig=False):
+    b = html.escape(str(item.get("brand") or brand_of(item.get("name", ""))))
+    n = html.escape(str(item.get("name") or item.get("title") or "未命名商品"))
+    u = html.escape(str(item.get("url") or BASE))
+    p = int(item.get("price") or 0)
+    if show_orig:
+        orig = item.get("orig_price")
+        orig_str = f"NT${int(orig):,}" if orig else "---"
+        return f"• <b>{b}</b> - <b>NT${p:,}</b> (原價: {orig_str})\n  <a href='{u}'>{n}</a>\n"
+    return f"• <b>{b}</b> - NT${p:,}\n  <a href='{u}'>{n}</a>\n"
+
+
+def send_tg_notification(new_items, drop_items, new_count=0, updated_str="", test_mode=False):
     bot_token = os.environ.get("TG_BOT_TOKEN", "").strip()
     chat_id = os.environ.get("TG_CHAT_ID", "").strip()
     if not bot_token or not chat_id:
-        print("未設定 TG_BOT_TOKEN 或 TG_CHAT_ID，跳過 Telegram 通知。")
-        return
+        print("[TG] 未設定 TG_BOT_TOKEN 或 TG_CHAT_ID，跳過發送。")
+        return False
 
     messages = []
     if test_mode:
         messages.append(
             "🧪 <b>【2nd STREET 機器人串接測試】</b>\n"
-            "• 品牌：LOUIS VUITTON - NT$18,000\n"
+            "• <b>LOUIS VUITTON</b> - NT$18,000\n"
             "  <a href='https://store.2ndstreet.com.tw'>測試商品連結</a>"
         )
 
     if new_items:
-        msg = "✨ <b>【2nd STREET 包包新上架通知】</b>\n"
-        for item in new_items[:8]:
-            b = html.escape(str(item.get("brand", "品牌")))
-            n = html.escape(str(item.get("name", "未命名商品")))
-            u = html.escape(str(item.get("url", BASE)))
-            p = int(item.get("price") or 0)
-            msg += f"• <b>{b}</b> - NT${p:,}\n  <a href='{u}'>{n}</a>\n"
+        header = f"✨ <b>【2nd STREET 即時更新・新掃入 +{new_count}】</b>"
+        if updated_str:
+            header += f"\n🕒 {html.escape(updated_str)}"
+        msg = header + "\n"
+        for item in new_items[:MAX_NOTIFY_ITEMS]:
+            msg += _format_item_line(item, show_orig=False)
         messages.append(msg)
 
     if drop_items:
-        msg = "🔥 <b>【2nd STREET 包包降價通知】</b>\n"
-        for item in drop_items[:8]:
-            b = html.escape(str(item.get("brand", "品牌")))
-            n = html.escape(str(item.get("name", "未命名商品")))
-            u = html.escape(str(item.get("url", BASE)))
-            p = int(item.get("price") or 0)
-            orig = item.get("orig_price")
-            orig_str = f"NT${int(orig):,}" if orig else "---"
-            msg += f"• <b>{b}</b> - <b>NT${p:,}</b> (原價: {orig_str})\n  <a href='{u}'>{n}</a>\n"
+        header = "🔥 <b>【2nd STREET 包包降價通知】</b>"
+        if updated_str:
+            header += f"\n🕒 {html.escape(updated_str)}"
+        msg = header + "\n"
+        for item in drop_items[:MAX_NOTIFY_ITEMS]:
+            msg += _format_item_line(item, show_orig=True)
         messages.append(msg)
 
-    for text in messages:
+    if not messages:
+        print("[TG] 本次無新掃入或降價包款，無需推播。")
+        return True
+
+    sent_ok = True
+    for idx, text in enumerate(messages, start=1):
         try:
-            _post_tg(bot_token, chat_id, text)
-            print("Telegram 通知已發送。")
+            _post_tg_message(bot_token, chat_id, text)
+            print(f"[TG] 第 {idx}/{len(messages)} 則通知已即時送出。")
         except Exception as e:
-            print("Telegram 通知發送失敗:", e)
+            sent_ok = False
+            print(f"[TG] 第 {idx}/{len(messages)} 則通知發送失敗: {e}")
+            traceback.print_exc()
+    return sent_ok
 
 
-def merge_with_previous(current):
-    prev = {}
-    if DATA_FILE.exists():
-        try:
-            data = json.loads(DATA_FILE.read_text("utf-8"))
-        except ValueError:
-            data = {}
-        rows = data.get("items", []) if isinstance(data, dict) else data
-        prev = {
-            i["id"]: i for i in rows
-            if isinstance(i, dict) and {"id", "first_seen", "price"} <= set(i)
-        }
-        if BAG_ONLY:
-            prev = {k: v for k, v in prev.items() if is_bag(v.get("name", ""))}
-        if TARGET_BRANDS:
-            prev = {k: v for k, v in prev.items() if is_target_brand(v.get("name", ""))}
+def load_previous_items():
+    if not DATA_FILE.exists():
+        return {}
+    try:
+        data = json.loads(DATA_FILE.read_text("utf-8"))
+    except Exception as e:
+        print(f"[DB] 讀取舊 results.json 失敗，改以空基準處理: {e}")
+        return {}
 
+    rows = data.get("items", []) if isinstance(data, dict) else (data if isinstance(data, list) else [])
+    prev = {
+        i["id"]: i for i in rows
+        if isinstance(i, dict) and {"id", "first_seen", "price"} <= set(i)
+    }
+    if BAG_ONLY:
+        prev = {k: v for k, v in prev.items() if is_bag(v.get("name", ""))}
+    if TARGET_BRANDS:
+        prev = {k: v for k, v in prev.items() if is_target_brand(v.get("name", ""))}
+    return prev
+
+
+def merge_with_previous(current, prev):
     if prev and len(current) < len(prev) * MIN_KEEP_RATIO:
         sys.exit("異常：本次抓取筆數過少，中止覆蓋資料。")
 
+    has_prev = bool(prev)
     now_dt = datetime.now(timezone.utc).replace(microsecond=0)
     now = now_dt.isoformat()
-    result = []
 
+    freshly_scanned = []
+    existing_updated = []
     notify_new = []
     notify_drop = []
 
@@ -424,15 +454,24 @@ def merge_with_previous(current):
         has_orig_drop = bool(it["orig_price"] and it["orig_price"] > it["price"])
 
         if old is None:
-            it["first_seen"] = now if prev else "1970-01-01T00:00:00+00:00"
-            it["is_new"] = (bool(prev) or "new" in it["tags"]) and not is_sale_cat
+            it["first_seen"] = now if has_prev else "1970-01-01T00:00:00+00:00"
+            it["is_new"] = (has_prev or "new" in it["tags"]) and not is_sale_cat
             it["price_history"] = [{"t": now, "p": it["price"]}]
             it["price_dropped"] = is_sale_cat or has_orig_drop
+            it["is_fresh_scan"] = True
 
-            if prev and it["is_new"]:
-                notify_new.append(it)
-            elif prev and it["price_dropped"]:
-                notify_drop.append(it)
+            it["brand"] = brand_of(it["name"])
+            it["title"] = it["name"]
+            it["image"] = it["img"]
+            it["is_price_drop"] = it["price_dropped"]
+
+            freshly_scanned.append(it)
+
+            if has_prev or NOTIFY_ON_FIRST_RUN:
+                if it["is_new"]:
+                    notify_new.append(it)
+                elif it["price_dropped"]:
+                    notify_drop.append(it)
         else:
             it["first_seen"] = old["first_seen"]
             hist = old.get("price_history", [])
@@ -444,36 +483,63 @@ def merge_with_previous(current):
 
             it["price_dropped"] = is_sale_cat or has_orig_drop or is_hist_drop
             it["is_new"] = (age.days < NEW_DAYS or "new" in it["tags"]) and not it["price_dropped"]
+            it["is_fresh_scan"] = False
 
-            if is_hist_drop:
+            it["brand"] = brand_of(it["name"])
+            it["title"] = it["name"]
+            it["image"] = it["img"]
+            it["is_price_drop"] = it["price_dropped"]
+
+            existing_updated.append(it)
+
+            if is_hist_drop and (has_prev or NOTIFY_ON_FIRST_RUN):
                 notify_drop.append(it)
 
-        it["brand"] = brand_of(it["name"])
-        it["title"] = it["name"]
-        it["image"] = it["img"]
-        it["is_price_drop"] = it["price_dropped"]
-        result.append(it)
+    # 新掃到的商品排在最前面
+    ordered_result = freshly_scanned + existing_updated
+    new_count = len(freshly_scanned) if has_prev else 0
+    updated_summary = f"{now}（新掃入 +{new_count}）"
 
-    send_tg_notification(notify_new, notify_drop, test_mode=False)
-    return result, now
+    return ordered_result, now, updated_summary, new_count, notify_new, notify_drop
+
+
+def save_results(items, now, updated_summary, new_count):
+    payload = {
+        "updated": now,
+        "new_count": new_count,
+        "updated_summary": updated_summary,
+        "items": items,
+    }
+    DATA_FILE.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=1),
+        encoding="utf-8",
+    )
+    print(f"[DB] 已寫入 {DATA_FILE}：更新時間 {updated_summary}，共 {len(items)} 筆商品（新掃入 {new_count} 筆）。")
 
 
 def main():
-    if "--test-tg" in sys.argv:
-        send_tg_notification([], [], test_mode=True)
+    args = set(sys.argv[1:])
+
+    if "--test-tg" in args:
+        send_tg_notification([], [], new_count=0, updated_str="測試時間", test_mode=True)
         return
 
-    debug = "--debug" in sys.argv
+    debug = "--debug" in args
+    force_notify = "--force-notify" in args
+
     current = crawl(debug)
     if not current:
         sys.exit("一筆都沒抓到。")
 
-    items, now = merge_with_previous(current)
-    DATA_FILE.write_text(
-        json.dumps({"updated": now, "items": items}, ensure_ascii=False, indent=1),
-        encoding="utf-8",
-    )
-    print(f"完成：{len(items)} 筆商品更新。")
+    prev = load_previous_items()
+    items, now, updated_summary, new_count, notify_new, notify_drop = merge_with_previous(current, prev)
+    save_results(items, now, updated_summary, new_count)
+
+    # 資料更新完成後立即推播通知
+    if force_notify and not notify_new and not notify_drop:
+        send_tg_notification(items[:3], [], new_count=new_count, updated_str=updated_summary, test_mode=False)
+    else:
+        send_tg_notification(notify_new, notify_drop, new_count=new_count, updated_str=updated_summary, test_mode=False)
 
 
 if __name__ == "__main__":
